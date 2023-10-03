@@ -18,6 +18,11 @@ public class FlightController : MonoBehaviour
 
    private void Awake()
    {
+      Initialize();
+   }
+
+   private void Initialize()
+   {
       speed = minSpeed;
    }
 
@@ -25,14 +30,15 @@ public class FlightController : MonoBehaviour
    {
       CalculateCursorDelta();
       Move();
-      Accelerate();
-      if(Input.GetKeyDown(KeyCode.LeftShift)) Decelerate();
    }
 
    private void Move()
    {
       transform.position += transform.forward * (speed * Time.deltaTime);
       transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y * verticalSensitivity, cursorDelta.x * horizontalSensitivity, 0));
+      
+      Accelerate();
+      if(Input.GetKeyDown(KeyCode.LeftShift)) Decelerate();
    }
 
    private void Accelerate()
