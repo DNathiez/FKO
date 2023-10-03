@@ -1,4 +1,6 @@
+using UnityEditor;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class FlightController : MonoBehaviour
 {
@@ -7,6 +9,7 @@ public class FlightController : MonoBehaviour
    
    [SerializeField] private float acceleration = 1;
    [SerializeField] private float deceleration = 1;
+   [SerializeField] private float hardDecelerationFactor = 2;
    private bool isAccelerating;
     
    [SerializeField] private float dampingSpeed = 3;
@@ -59,13 +62,19 @@ public class FlightController : MonoBehaviour
       }
       else
       {
-         speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * deceleration); 
+         if (speed > minSpeed)
+         {
+            speed -= deceleration * Time.deltaTime;
+         }
       }
    }
 
    private void Decelerate()
    {
-      speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * (deceleration * 2));
+      if (speed > minSpeed)
+      {
+         speed -= (deceleration * hardDecelerationFactor) * Time.deltaTime;
+      }   
    }
 
    private void CalculateCursorDelta()
