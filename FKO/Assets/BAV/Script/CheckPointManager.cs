@@ -47,6 +47,7 @@ public class CheckPointManager : MonoBehaviour
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
+        SetElementAtRandomPosition();
     }
 
     private void Update()
@@ -98,7 +99,7 @@ public class CheckPointManager : MonoBehaviour
         if (enableGizmos)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawCube(cubeCenter, cubeSize);
+            Gizmos.DrawWireCube(cubeCenter, cubeSize);
         }
     }
 }
