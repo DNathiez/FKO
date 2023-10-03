@@ -8,7 +8,7 @@ public class GhostReplay : MonoBehaviour
     private List<Vector3> positions = new();
     private List<Quaternion> rotations = new();
     
-    [SerializeField] private GameObject ghost;
+    [SerializeField] private GameObject ghostGO;
 
     private float lerpSpeed;
     
@@ -27,16 +27,12 @@ public class GhostReplay : MonoBehaviour
     
     public void LoadRecording()
     {
-        string[] lines = textFile.text.Split('\n');
-        foreach (string line in lines)
-        {
-            string[] values = line.Split(',');
-            positions.Add(new Vector3(float.Parse(values[0]), float.Parse(values[1]), float.Parse(values[2])));
-            rotations.Add(new Quaternion(float.Parse(values[3]), float.Parse(values[4]), float.Parse(values[5]), float.Parse(values[6])));
-        }
+        Ghost ghost = JsonUtility.FromJson<Ghost>(textFile.text);
+        positions = ghost.positions;
+        rotations = ghost.rotations;
         
-        ghost.transform.position = positions[0];
-        ghost.transform.rotation = rotations[0];
+        ghostGO.transform.position = positions[0];
+        ghostGO.transform.rotation = rotations[0];
     }
     
     public void StartReplay()
@@ -48,8 +44,8 @@ public class GhostReplay : MonoBehaviour
     {
         for (int i = 0; i < positions.Count; i++)
         {
-            transform.position = Vector3.Lerp(transform.position, positions[i], lerpSpeed);
-            transform.rotation = Quaternion.Lerp(transform.rotation, rotations[i], lerpSpeed);
+            ghostGO.transform.position = Vector3.Lerp(ghostGO.transform.position, positions[i], lerpSpeed);
+            ghostGO.transform.rotation = Quaternion.Lerp(ghostGO.transform.rotation, rotations[i], lerpSpeed);
             yield return new WaitForSeconds(lerpSpeed);
         }
     }
