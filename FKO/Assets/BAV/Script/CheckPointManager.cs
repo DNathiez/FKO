@@ -32,6 +32,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private int _checkPointSizeList;
 
     public int checkPointPassed;
+    public int lastCheckPointPassed;
     
 
     private void Awake()
@@ -60,6 +61,7 @@ public class CheckPointManager : MonoBehaviour
         }
     }
 
+    //Reset Checkpoints State
     void ResetCheckPoints()
     {
         if (checkPointLevel != null)
@@ -72,6 +74,7 @@ public class CheckPointManager : MonoBehaviour
         }
     }
     
+    //Set CheckPoints at Random Position
     void SetElementAtRandomPosition()
     {
         // Loop through the list of elements to spawn

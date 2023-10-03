@@ -9,8 +9,10 @@ public class CheckPoints : MonoBehaviour
     public LayerMask elementToTchek;
     public bool isPassed;
     
+    
     //Private S
     [SerializeField] private GameObject _PSWhenCompleted;
+    [SerializeField] private int _ID;
     
     //Private
     private SphereCollider _sphereCollider;
@@ -46,7 +48,8 @@ public class CheckPoints : MonoBehaviour
     void IncrementValueToReachVictory()
     {
         CheckPointManager.Instance.checkPointPassed++;
-        Debug.Log(gameObject.name + "has incremented Value");
+        CheckPointManager.Instance.lastCheckPointPassed = _ID;
+        //Debug.Log(gameObject.name + "has incremented Value");
     }
 
     void EnableParticulesFeedback()
