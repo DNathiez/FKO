@@ -4,12 +4,16 @@ public class FlightController : MonoBehaviour
 {
    [SerializeField] private float minSpeed = 5f;
    [SerializeField] private float speed;
+   
    [SerializeField] private float acceleration = 1;
    [SerializeField] private float deceleration = 1;
+   private bool isAccelerating;
+    
    [SerializeField] private float dampingSpeed = 3;
 
    [SerializeField] private float horizontalSensitivity;
    [SerializeField] private float verticalSensitivity;
+   
    [SerializeField] private Vector2 cursorDelta;
 
    private void Awake()
@@ -22,6 +26,7 @@ public class FlightController : MonoBehaviour
       CalculateCursorDelta();
       Move();
       Accelerate();
+      if(Input.GetKeyDown(KeyCode.LeftShift)) Decelerate();
    }
 
    private void Move()
@@ -30,27 +35,31 @@ public class FlightController : MonoBehaviour
       transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y * verticalSensitivity, cursorDelta.x * horizontalSensitivity, 0));
    }
 
-   private bool accelerating;
    private void Accelerate()
    {
       if (Input.GetKeyDown(KeyCode.Space))
       {
-         accelerating = true;
+         isAccelerating = true;
       }
 
       if (Input.GetKeyUp(KeyCode.Space))
       {
-         accelerating = false;
+         isAccelerating = false;
       }
 
-      if (accelerating)
+      if (isAccelerating)
       {
          speed += acceleration * Time.deltaTime;
       }
       else
       {
-         speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * deceleration);
+         speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * deceleration); 
       }
+   }
+
+   private void Decelerate()
+   {
+      speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * (deceleration * 2));
    }
 
    private void CalculateCursorDelta()
