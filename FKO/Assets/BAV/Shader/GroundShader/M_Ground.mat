@@ -67,6 +67,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Debug: 1e+10
     - _Metallic: 0
     - _NormalStrength: 0
     - _QueueControl: 0
@@ -76,5 +77,7 @@ Material:
     - _Tiling: 1
     m_Colors:
     - _AlbedoColor: {r: 0, g: 0, b: 0, a: 0}
+    - _Debug_1: {r: 2, g: 5137.4, b: 5, a: 0}
     - _EmissiveColor: {r: 80.58844, g: 512, b: 0, a: 0}
+    - _SizeBox: {r: 30, g: 30, b: 30, a: 0}
   m_BuildTextureStacks: []
