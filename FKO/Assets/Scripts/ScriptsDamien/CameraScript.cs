@@ -8,6 +8,7 @@ public class CameraScript : MonoBehaviour
     private Quaternion playerRotation;
     [Range(0.001f, 0.1f)] [SerializeField] private float smoothFactor = 0.5f;
     [SerializeField] private Vector3 cameraOffset;
+    [SerializeField] private float cameraLookAtOffset;
     
     private Vector3 goalPosition;
     
@@ -26,7 +27,17 @@ public class CameraScript : MonoBehaviour
         var position = player.transform.position;
         goalPosition = position + cameraRotation * cameraOffset;
         transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactor);
-        transform.LookAt(position);
+        
+        //system for a lookat that looks at the player but with a bit of lag
+        if (cameraLookAtOffset > 0)
+        {
+            Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
+            transform.LookAt(lookAtPosition);
+        }
+        else
+        {
+            transform.LookAt(position);
+        }
     }
     
     public void SetPlayer(GameObject newPlayer)

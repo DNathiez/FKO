@@ -11,7 +11,9 @@ public class FlightController : MonoBehaviour
    private bool isAccelerating;
     
    [SerializeField] private float dampingSpeed = 3;
+   [SerializeField] [Range(0, 5)] private float horizontalSensitivity = 1;
 
+   [SerializeField] private float verticalAngleLimit = 40;
    
    [SerializeField] private Vector2 cursorDelta;
 
@@ -27,6 +29,21 @@ public class FlightController : MonoBehaviour
 
    private void Update()
    {
+      if (Input.GetButtonDown("Fire1") && GameManager.instance.inGame && !GameManager.instance.isPlaying)
+      {
+         GameManager.instance.isPlaying = true;
+         GameManager.instance.uiManager.HideHUD();
+      }
+
+      transform.eulerAngles = transform.eulerAngles.x switch
+      {
+         > 86 and < 180 => new Vector3(86, transform.eulerAngles.y, transform.eulerAngles.z),
+         < 274 and > 180 => new Vector3(274, transform.eulerAngles.y, transform.eulerAngles.z),
+         _ => transform.eulerAngles
+      };
+
+      if(!GameManager.instance.isPlaying) return;
+      
       CalculateCursorDelta();
       Move();
    }
@@ -34,11 +51,14 @@ public class FlightController : MonoBehaviour
    private void Move()
    {
       transform.position += transform.forward * (speed * Time.deltaTime);
-      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y, cursorDelta.x, 0));
+      transform.eulerAngles += new Vector3(-cursorDelta.y, cursorDelta.x, 0);
       
+      //TODO : Constrains the vertical angle
+       
       Accelerate();
       if(Input.GetButtonDown("Fire2")) Decelerate();
    }
+    
 
    private void Accelerate()
    {
@@ -77,7 +97,7 @@ public class FlightController : MonoBehaviour
    {
       if (Input.GetAxis("Horizontal") != 0)
       {
-         cursorDelta.x += Input.GetAxis("Horizontal") * dampingSpeed * Time.deltaTime;
+         cursorDelta.x += Input.GetAxis("Horizontal") * horizontalSensitivity * Time.deltaTime;
          cursorDelta.x = Mathf.Clamp(cursorDelta.x, -1, 1);
       }
       else
