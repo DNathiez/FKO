@@ -32,6 +32,7 @@ public class CheckPointManager : MonoBehaviour
     [SerializeField] private int _checkPointSizeList;
 
     public int checkPointPassed;
+    public int lastCheckPointPassed;
     
 
     private void Awake()
@@ -47,6 +48,7 @@ public class CheckPointManager : MonoBehaviour
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
+        SetElementAtRandomPosition();
     }
 
     private void Update()
@@ -59,6 +61,7 @@ public class CheckPointManager : MonoBehaviour
         }
     }
 
+    //Reset Checkpoints State
     void ResetCheckPoints()
     {
         if (checkPointLevel != null)
@@ -71,6 +74,7 @@ public class CheckPointManager : MonoBehaviour
         }
     }
     
+    //Set CheckPoints at Random Position
     void SetElementAtRandomPosition()
     {
         // Loop through the list of elements to spawn
@@ -98,7 +102,7 @@ public class CheckPointManager : MonoBehaviour
         if (enableGizmos)
         {
             Gizmos.color = Color.yellow;
-            Gizmos.DrawCube(cubeCenter, cubeSize);
+            Gizmos.DrawWireCube(cubeCenter, cubeSize);
         }
     }
 }

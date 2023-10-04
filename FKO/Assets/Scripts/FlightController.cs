@@ -7,12 +7,11 @@ public class FlightController : MonoBehaviour
    
    [SerializeField] private float acceleration = 1;
    [SerializeField] private float deceleration = 1;
+   [SerializeField] private float hardDecelerationFactor = 2;
    private bool isAccelerating;
     
    [SerializeField] private float dampingSpeed = 3;
 
-   [SerializeField] private float horizontalSensitivity;
-   [SerializeField] private float verticalSensitivity;
    
    [SerializeField] private Vector2 cursorDelta;
 
@@ -35,7 +34,7 @@ public class FlightController : MonoBehaviour
    private void Move()
    {
       transform.position += transform.forward * (speed * Time.deltaTime);
-      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y * verticalSensitivity, cursorDelta.x * horizontalSensitivity, 0));
+      transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y, cursorDelta.x, 0));
       
       Accelerate();
       if(Input.GetKeyDown(KeyCode.LeftShift)) Decelerate();
@@ -59,35 +58,60 @@ public class FlightController : MonoBehaviour
       }
       else
       {
-         speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * deceleration); 
+         if (speed > minSpeed)
+         {
+            speed -= deceleration * Time.deltaTime;
+         }
       }
    }
 
    private void Decelerate()
    {
-      speed = Mathf.Lerp(speed, minSpeed, Time.deltaTime * (deceleration * 2));
+      if (speed > minSpeed)
+      {
+         speed -= (deceleration * hardDecelerationFactor) * Time.deltaTime;
+      }   
    }
 
    private void CalculateCursorDelta()
    {
       if (Input.GetAxis("Horizontal") != 0)
       {
-         cursorDelta.x += Input.GetAxis("Horizontal") * horizontalSensitivity * Time.deltaTime;
+         cursorDelta.x += Input.GetAxis("Horizontal") * dampingSpeed * Time.deltaTime;
          cursorDelta.x = Mathf.Clamp(cursorDelta.x, -1, 1);
       }
       else
       {
-         cursorDelta.x = Mathf.Lerp(cursorDelta.x, 0,  Time.deltaTime * dampingSpeed);
+         if (cursorDelta.x < 0)
+         {
+            cursorDelta.x += Time.deltaTime * dampingSpeed;
+         }
+         else if (cursorDelta.x > 0)
+         {
+            cursorDelta.x -= Time.deltaTime * dampingSpeed;
+         }
+         
+         if(cursorDelta.x < 0.1f && cursorDelta.x > -0.1f) cursorDelta.x = 0;
       }
       
       if (Input.GetAxis("Vertical") != 0)
       {
-         cursorDelta.y += Input.GetAxis("Vertical") * verticalSensitivity * Time.deltaTime;
+         cursorDelta.y += Input.GetAxis("Vertical") * dampingSpeed * Time.deltaTime;
          cursorDelta.y = Mathf.Clamp(cursorDelta.y, -1, 1);
       }
       else
       {
-         cursorDelta.y = Mathf.Lerp(cursorDelta.y, 0, Time.deltaTime * dampingSpeed);
+         if (cursorDelta.y < 0)
+         {
+            cursorDelta.y += Time.deltaTime * dampingSpeed;
+         }
+         else if (cursorDelta.y > 0)
+         {
+            cursorDelta.y -= Time.deltaTime * dampingSpeed;
+         }
+         
+         if(cursorDelta.y < 0.1f && cursorDelta.y > -0.1f) cursorDelta.y = 0;
+
       }
    }
 }
