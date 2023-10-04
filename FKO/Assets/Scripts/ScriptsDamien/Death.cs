@@ -32,6 +32,8 @@ public class Death : MonoBehaviour
 
         player.GetComponent<FlightController>().ResetSpeed();
         
+        GhostRecording.Instance.StopRecording();
+        
         GameManager.instance.inGame = false;
         GameManager.instance.isPlaying = false;
         GameManager.instance.uiManager.DrawGameResult();

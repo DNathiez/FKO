@@ -20,24 +20,17 @@ public class GhostRecording : MonoBehaviour
         Instance = this;
     }
     
-    // Start is called before the first frame update
     void Start()
     {
         _timer = Timer.Instance;
         respawn = Respawn.Instance;
         cameraScript = CameraScript.Instance;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-          
-    }
+    
 
     public void StartRecording()
     {
         StartCoroutine(Record());
-        _timer.StartChrono();
         respawn.SpawnPlayer();
         cameraScript.SetPlayer(player);
     }
@@ -55,7 +48,6 @@ public class GhostRecording : MonoBehaviour
     public void StopRecording()
     {
         StopAllCoroutines();
-        _timer.StopChrono();
         SaveRecording();
     }
 

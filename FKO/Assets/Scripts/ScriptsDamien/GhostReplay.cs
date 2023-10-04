@@ -15,18 +15,13 @@ public class GhostReplay : MonoBehaviour
     private CameraScript cameraScript;
     
     private GhostRecording ghostRecording;
-    // Start is called before the first frame update
+
     void Start()
     {
         cameraScript = CameraScript.Instance;
         lerpSpeed = GhostRecording.Instance.timeBetweenPositionsInSeconds;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     
     public void LoadRecording()
     {

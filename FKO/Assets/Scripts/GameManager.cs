@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = true;
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
+        GhostRecording.Instance.StartRecording();
         timer.StartChrono();
     }
     
