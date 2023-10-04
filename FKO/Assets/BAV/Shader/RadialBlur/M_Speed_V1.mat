@@ -38,14 +38,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurPower: 1
-    - _BlurPowerEffect: 1
-    - _CenterMaskEdge: 0.5
+    - _BlurPower: 0.5
+    - _BlurPowerEffect: 0.5
+    - _CenterMaskEdge: 0.4
     - _DebugVignette: 0
     - _FramesAnim: 24
     - _InvertVignette: 0
-    - _LineCount: 20
-    - _MaskSize_Lines: 0.06
+    - _LineCount: 60
+    - _MaskSize_Lines: 0.1
     - _SpeedLine: 1
     - _UseVignette: 0
     - _VignettePower: 3
@@ -53,4 +53,5 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 0, b: 0, a: 1}
     - _SpeedLineCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
+    - _SpeedLinesColor: {r: 0.03984916, g: 1, b: 0, a: 0}
   m_BuildTextureStacks: []

@@ -44,15 +44,14 @@ public class FlightController : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetButtonDown("Fire1") && GameManager.instance.inGame && !GameManager.instance.isPlaying)
-      {
-         GameManager.instance.isPlaying = true;
-         GameManager.instance.uiManager.HideHUD();
-      }
-
-      
-
       if(!GameManager.instance.isPlaying) return;
+      
+      transform.eulerAngles = transform.eulerAngles.x switch
+      {
+         > 86 and < 180 => new Vector3(86, transform.eulerAngles.y, transform.eulerAngles.z),
+         < 274 and > 180 => new Vector3(274, transform.eulerAngles.y, transform.eulerAngles.z),
+         _ => transform.eulerAngles
+      };
       
       CalculateCursorDelta();
       Move();
@@ -174,6 +173,11 @@ public class FlightController : MonoBehaviour
       }
    }
 
+   public void ResetSpeed()
+   {
+      speed = minSpeed;
+   }
+   
    public float GetSpeed()
    {
       return speed;

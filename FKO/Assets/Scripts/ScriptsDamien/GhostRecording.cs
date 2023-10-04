@@ -10,7 +10,7 @@ public class GhostRecording : MonoBehaviour
     public float timeBetweenPositionsInSeconds = 0.1f;
     [SerializeField] private string ghostName = "DefaultName";
     [SerializeField] private string ghostSavePath = "Assets/ScriptsDamien/Ghosts/";
-    Chronmètre chronomètre;
+    Timer _timer;
     Respawn respawn;
     CameraScript cameraScript;
     public static GhostRecording Instance { get; private set; }
@@ -20,24 +20,17 @@ public class GhostRecording : MonoBehaviour
         Instance = this;
     }
     
-    // Start is called before the first frame update
     void Start()
     {
-        chronomètre = Chronmètre.Instance;
+        _timer = Timer.Instance;
         respawn = Respawn.Instance;
         cameraScript = CameraScript.Instance;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-          
-    }
+    
 
     public void StartRecording()
     {
         StartCoroutine(Record());
-        chronomètre.StartChrono();
         respawn.SpawnPlayer();
         cameraScript.SetPlayer(player);
     }
@@ -55,7 +48,6 @@ public class GhostRecording : MonoBehaviour
     public void StopRecording()
     {
         StopAllCoroutines();
-        chronomètre.StopChrono();
         SaveRecording();
     }
 

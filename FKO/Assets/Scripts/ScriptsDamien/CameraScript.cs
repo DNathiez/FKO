@@ -39,8 +39,7 @@ public class CameraScript : MonoBehaviour
         speed = Mathf.Clamp(speed, 0, 50);
         speed /= 50;
         smoothFactorValue = smoothFactor.Evaluate(speed);
-        // Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
-        
+        //Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
         playerRotation = player.transform.rotation;
         
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);

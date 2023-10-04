@@ -48,7 +48,7 @@ public class CheckPointManager : MonoBehaviour
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
-        SetElementAtRandomPosition();
+        //SetElementAtRandomPosition();
     }
 
     private void Update()
