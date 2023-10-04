@@ -7,8 +7,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Speed_V1
-  m_Shader: {fileID: -6465566751694194690, guid: 9f192aff37f65944794934c51b8217ed,
+  m_Name: M_RespawnShader
+  m_Shader: {fileID: -6465566751694194690, guid: 29127ac60e38e1f489fc51a590716d3f,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -38,20 +38,22 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _BlurPower: 0.5
-    - _BlurPowerEffect: 0.5
-    - _CenterMaskEdge: 1
-    - _DebugVignette: 0
-    - _FramesAnim: 24
-    - _InvertVignette: 0
-    - _LineCount: 20
-    - _MaskSize_Lines: 0.1
-    - _SpeedLine: 1
-    - _UseVignette: 0
-    - _VignettePower: 3
-    - _VignetteSize: 0
+    - _Position: 0
+    - _QueueControl: 0
+    - _QueueOffset: 0
     m_Colors:
-    - _BaseColor: {r: 1, g: 0, b: 0, a: 1}
-    - _SpeedLineCenter: {r: 0.5, g: 0.5, b: 0, a: 0}
-    - _SpeedLinesColor: {r: 0.03984916, g: 1, b: 0, a: 0}
+    - _BasicColor: {r: 1, g: 0, b: 0, a: 0}
   m_BuildTextureStacks: []
+--- !u!114 &2423614280333631452
+MonoBehaviour:
+  m_ObjectHideFlags: 11
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  version: 7
