@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.3069224, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -466,22 +466,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2146093368}
-    - targetCorrespondingSourceObject: {fileID: 5034770919938167844, guid: 14a8529990c5c094597664b1e90c523e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 691839997}
     - targetCorrespondingSourceObject: {fileID: 6334035258660244602, guid: 14a8529990c5c094597664b1e90c523e,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 473699044}
-    - targetCorrespondingSourceObject: {fileID: 1134557324660277868, guid: 14a8529990c5c094597664b1e90c523e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 428391139}
-    - targetCorrespondingSourceObject: {fileID: 2970879253297625900, guid: 14a8529990c5c094597664b1e90c523e,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1892200380}
   m_SourcePrefab: {fileID: 100100000, guid: 14a8529990c5c094597664b1e90c523e, type: 3}
 --- !u!1 &65574327
 GameObject:
@@ -3505,6 +3493,46 @@ PrefabInstance:
       propertyPath: chrono
       value: 
       objectReference: {fileID: 1373382419}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: cameraOffset.z
+      value: -5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactorValue
+      value: 0.00151
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[0].value
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[2].value
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[0].inSlope
+      value: -0.023999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[2].inSlope
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[0].outSlope
+      value: -0.023999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[2].outSlope
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8433532994914869487, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_LocalPosition.x
