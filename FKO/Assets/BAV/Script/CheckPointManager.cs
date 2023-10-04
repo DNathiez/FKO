@@ -21,7 +21,8 @@ public class CheckPointManager : MonoBehaviour
     [Header("Setup Checkpoint Renderer")] 
     public Material checkpointMaterial;
     public List<Color> checkpointColor;
-    
+    public Material m_groundMaterial;
+
     //Private S
     //[Header("Area for SpawnPoints")]
     //[SerializeField] private Vector3 cubeCenter; 
@@ -67,6 +68,7 @@ public class CheckPointManager : MonoBehaviour
         }
         checkPointValueToWin = checkPointLevel.Count;
         SetCheckPointsColor(); //Set the color for all the material
+        GroundMaterialMaster.SetValueToGroundMat(m_groundMaterial, checkPointLevel, checkpointColor);
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
@@ -84,14 +86,22 @@ public class CheckPointManager : MonoBehaviour
 
     void SetCheckPointsColor()
     {
+        
         if (checkPointLevel.Count != 0)
         {
             for (int i = 0; i < checkPointLevel.Count; i++)
             {
+                string checkpointPosPropertyName = "_CheckpointPos" + i;
+                string colorPropertyName = "_ColorCheckpoints" + i;
+                string isCompletedPropertyName = "_isCompleted" + i;
+                
+                
                 Material checkpointMaterial = new Material(this.checkpointMaterial);
                 checkpointMaterial.SetColor("_CheckpointsColor", checkpointColor[i]);
                 checkPointLevel[i].GetComponent<Renderer>().material = checkpointMaterial;
-                
+                m_groundMaterial.SetVector(checkpointPosPropertyName, checkPointLevel[i].transform.position);
+                m_groundMaterial.SetColor(colorPropertyName, checkpointColor[i]);
+                m_groundMaterial.SetFloat(isCompletedPropertyName, 0);
             }
         }
     }
