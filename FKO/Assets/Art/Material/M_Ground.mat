@@ -116,6 +116,7 @@ Material:
     - _ClearCoatSmoothness: 0
     - _Cull: 2
     - _Cutoff: 0.5
+    - _Debug: 100
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
@@ -145,9 +146,11 @@ Material:
     - _AlbedoColor: {r: 0.21986242, g: 0.18654326, b: 0.3018868, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.99824125, g: 8.474189, b: 0, a: 0}
     - _GroundColor: {r: 0, g: 0, b: 0, a: 0}
     - _PlayerPos: {r: 0, g: 0, b: 0, a: 0}
+    - _SizeBox: {r: 304.56, g: 20, b: 10, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
