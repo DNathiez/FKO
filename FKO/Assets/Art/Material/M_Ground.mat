@@ -122,7 +122,16 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
-    - _GBScaleCheckpoint_1: 1
+    - _GBRoundedCheckpoint_1: 10
+    - _GBRoundedCheckpoint_2: 10
+    - _GBRoundedCheckpoint_3: 10
+    - _GBRoundedCheckpoint_4: 10
+    - _GBRoundedCheckpoint_5: 10
+    - _GBScaleCheckpoint_1: 1.2
+    - _GBScaleCheckpoint_2: 1.2
+    - _GBScaleCheckpoint_3: 1.2
+    - _GBScaleCheckpoint_4: 1.2
+    - _GBScaleCheckpoint_5: 1.2
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -144,20 +153,33 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _isCompleted: 0
+    - _isCompleted_1: 0
+    - _isCompleted_2: 0
+    - _isCompleted_3: 0
+    - _isCompleted_4: 0
+    - _isCompleted_5: 0
     m_Colors:
     - _AlbedoColor: {r: 0.21986242, g: 0.18654326, b: 0.3018868, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CheckpointPos: {r: -115, g: 8.8, b: -255, a: 0}
-    - _CheckpointPos_1: {r: -115, g: 8.8, b: -255, a: 0}
+    - _CheckpointPos_1: {r: -406, g: 28, b: -512, a: 0}
+    - _CheckpointPos_2: {r: -217, g: 8.8, b: -403, a: 0}
+    - _CheckpointPos_3: {r: -115, g: 8.8, b: -255, a: 0}
+    - _CheckpointPos_4: {r: -336, g: 57, b: -218, a: 0}
+    - _CheckpointPos_5: {r: -534, g: 96, b: -331, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorCheckPoint: {r: 1, g: 0, b: 0.7920551, a: 0}
     - _ColorCheckPoint_1: {r: 1, g: 0, b: 0.029678345, a: 0}
-    - _ColorCheckpoints_1: {r: 0, g: 0, b: 0, a: 0}
+    - _ColorCheckpoints_1: {r: 1, g: 0.84357387, b: 0, a: 0}
+    - _ColorCheckpoints_2: {r: 0, g: 0.22047567, b: 1, a: 0}
+    - _ColorCheckpoints_3: {r: 1, g: 0.37393147, b: 0, a: 0}
+    - _ColorCheckpoints_4: {r: 1, g: 0, b: 0.7890277, a: 0}
+    - _ColorCheckpoints_5: {r: 0, g: 0.88068175, b: 1, a: 0}
     - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.99824125, g: 8.474189, b: 0, a: 0}
-    - _GlobalColorNotCheckCheckpoint: {r: 1, g: 0, b: 0.7920551, a: 0}
-    - _GlobalSizeBoxCheckpoint: {r: 5, g: 5, b: 5, a: 0}
+    - _GlobalColorNotCheckCheckpoint: {r: 1, g: 0.04082808, b: 0, a: 0}
+    - _GlobalSizeBoxCheckpoint: {r: 10, g: 10, b: 10, a: 0}
     - _GroundColor: {r: 0, g: 0, b: 0, a: 0}
     - _PlayerPos: {r: 0, g: 0, b: 0, a: 0}
     - _SizeBox: {r: 20, g: 20, b: 20, a: 0}
