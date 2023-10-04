@@ -9,9 +9,11 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private AnimationCurve smoothFactor;
     [Range(0.001f,0.0250f)][SerializeField] private float smoothFactorValue;
     [SerializeField] private Vector3 cameraOffset;
-    [SerializeField] private float cameraLookAtOffset;
+    [SerializeField] private AnimationCurve cameralookAtOffset;
+    [SerializeField] private float cameraLookAtOffsetValue;
 
     private float speed;
+    private Vector3 speedVector;
     
     private Vector3 goalPosition;
     private FlightController flightController;
@@ -34,27 +36,21 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         speed = flightController.GetSpeed();
-        speed = Mathf.Clamp(speed, 0, 100);
-        speed /= 100;
-        
-        // // Debug.Log(speed);
+        speed = Mathf.Clamp(speed, 0, 50);
+        speed /= 50;
         smoothFactorValue = smoothFactor.Evaluate(speed);
         //Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
         playerRotation = player.transform.rotation;
+        
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
-        goalPosition = position + cameraRotation * cameraOffset;
-        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
+        cameraOffset.y = Mathf.Lerp(0.5f, 3, speed);
+        cameraOffset.z = Mathf.Lerp(-1, -4, speed);
+        speedVector = flightController.GetSpeedVector();
+        transform.position = Vector3.Lerp(transform.position, position + cameraRotation * (speedVector * smoothFactorValue) + Vector3.up * cameraOffset.y + Vector3.back * cameraOffset.z, Time.deltaTime);
+        transform.LookAt(position + cameraRotation * (speedVector * smoothFactorValue) + Vector3.up * cameraOffset.y);
         
-        if (cameraLookAtOffset > 0)
-        {
-            Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
-            transform.LookAt(lookAtPosition);
-        }
-        else
-        {
-            transform.LookAt(position);
-        }
+        cameraLookAtOffsetValue = cameralookAtOffset.Evaluate(speed);
     }
     
     public void SetPlayer(GameObject newPlayer)

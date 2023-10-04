@@ -3,6 +3,7 @@ using UnityEngine;
 public class FlightController : MonoBehaviour
 {
    [SerializeField] private float minSpeed = 5f;
+   [SerializeField] private float maxSpeed = 50f;
    [SerializeField] private float speed;
    
    [SerializeField] private float acceleration = 1;
@@ -19,7 +20,8 @@ public class FlightController : MonoBehaviour
    
    [SerializeField] private AnimationCurve horizontalAxisSensitivity;
    [SerializeField] private AnimationCurve verticalAxisSensitivity;
-   
+
+
    public static FlightController Instance { get; private set; }
 
    private void Awake()
@@ -42,14 +44,15 @@ public class FlightController : MonoBehaviour
 
    private void Update()
    {
-      if(!GameManager.instance.isPlaying) return;
-      
-      transform.eulerAngles = transform.eulerAngles.x switch
+      if (Input.GetButtonDown("Fire1") && GameManager.instance.inGame && !GameManager.instance.isPlaying)
       {
-         > 86 and < 180 => new Vector3(86, transform.eulerAngles.y, transform.eulerAngles.z),
-         < 274 and > 180 => new Vector3(274, transform.eulerAngles.y, transform.eulerAngles.z),
-         _ => transform.eulerAngles
-      };
+         GameManager.instance.isPlaying = true;
+         GameManager.instance.uiManager.HideHUD();
+      }
+
+      
+
+      if(!GameManager.instance.isPlaying) return;
       
       CalculateCursorDelta();
       Move();
@@ -57,15 +60,22 @@ public class FlightController : MonoBehaviour
 
    private void Move()
    {
-      transform.position += transform.forward * (speed * Time.deltaTime);
+      transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward * speed, Time.deltaTime);
+
       transform.eulerAngles += new Vector3(-cursorDelta.y, cursorDelta.x, 0);
       
       //TODO : Constrains the vertical angle
+      transform.eulerAngles = transform.eulerAngles.x switch
+      {
+         > 86 and < 180 => new Vector3(86, transform.eulerAngles.y, transform.eulerAngles.z),
+         < 274 and > 180 => new Vector3(274, transform.eulerAngles.y, transform.eulerAngles.z),
+         _ => transform.eulerAngles
+      };
        
       Accelerate();
       if(Input.GetButtonDown("Fire2")) Decelerate();
    }
-    
+
 
    private void Accelerate()
    {
@@ -81,7 +91,8 @@ public class FlightController : MonoBehaviour
 
       if (isAccelerating)
       {
-         speed += acceleration * Time.deltaTime;
+         if (speed < maxSpeed)
+            speed += acceleration * Time.deltaTime;
       }
       else
       {
@@ -171,5 +182,15 @@ public class FlightController : MonoBehaviour
    public float GetSpeed()
    {
       return speed;
+   }
+   
+   public Vector3 GetSpeedVector()
+   {
+      return transform.forward * speed;
+   }
+
+   public Vector2 GetCursorDelta()
+   {
+      return cursorDelta;
    }
 }
