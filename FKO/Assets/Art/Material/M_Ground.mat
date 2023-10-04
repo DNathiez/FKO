@@ -122,6 +122,7 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _GBScaleCheckpoint_1: 1
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
@@ -142,15 +143,23 @@ Material:
     - _Tiling: 0.05
     - _WorkflowMode: 1
     - _ZWrite: 1
+    - _isCompleted: 0
     m_Colors:
     - _AlbedoColor: {r: 0.21986242, g: 0.18654326, b: 0.3018868, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
+    - _CheckpointPos: {r: -115, g: 8.8, b: -255, a: 0}
+    - _CheckpointPos_1: {r: -115, g: 8.8, b: -255, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorCheckPoint: {r: 1, g: 0, b: 0.7920551, a: 0}
+    - _ColorCheckPoint_1: {r: 1, g: 0, b: 0.029678345, a: 0}
+    - _ColorCheckpoints_1: {r: 0, g: 0, b: 0, a: 0}
     - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.99824125, g: 8.474189, b: 0, a: 0}
+    - _GlobalColorNotCheckCheckpoint: {r: 1, g: 0, b: 0.7920551, a: 0}
+    - _GlobalSizeBoxCheckpoint: {r: 5, g: 5, b: 5, a: 0}
     - _GroundColor: {r: 0, g: 0, b: 0, a: 0}
     - _PlayerPos: {r: 0, g: 0, b: 0, a: 0}
-    - _SizeBox: {r: 304.56, g: 20, b: 10, a: 0}
+    - _SizeBox: {r: 20, g: 20, b: 20, a: 0}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
