@@ -37,6 +37,18 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - _AlbedoTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissiveTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _NormalTex:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _Tex2D:
         m_Texture: {fileID: 2800000, guid: 14c62e681192eff42867219e0ede1d53, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -55,9 +67,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _Metallic: 0
+    - _NormalStrength: 0
     - _QueueControl: 0
     - _QueueOffset: 0
+    - _Smoothness: 0.5
     - _Step: 0
     - _Tiling: 1
-    m_Colors: []
+    m_Colors:
+    - _AlbedoColor: {r: 0, g: 0, b: 0, a: 0}
+    - _EmissiveColor: {r: 80.58844, g: 512, b: 0, a: 0}
   m_BuildTextureStacks: []
