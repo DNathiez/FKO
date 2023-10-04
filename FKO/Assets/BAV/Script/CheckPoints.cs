@@ -39,6 +39,11 @@ public class CheckPoints : MonoBehaviour
         }
         _PSWhenCompleted.SetActive(false);
     }
+    
+    public void SetId(int id)
+    {
+        _ID = id;
+    }
 
     private void OnTriggerEnter(Collider other)
     {

@@ -7,8 +7,7 @@ using Random = UnityEngine.Random;
 public class CheckPointManager : MonoBehaviour
 {
     //Singleton Field
-    private static CheckPointManager _instanceCheckPointManager;
-    public static CheckPointManager Instance => _instanceCheckPointManager;
+    public static CheckPointManager Instance;
 
     /**
      * CheckPoints Part
@@ -38,17 +37,32 @@ public class CheckPointManager : MonoBehaviour
     private void Awake()
     {
         //Singleton Setup
-        if (_instanceCheckPointManager != null && _instanceCheckPointManager != this)
+        if (!Instance)
         {
-            Destroy(this.gameObject);
-        } else {
-            _instanceCheckPointManager = this;
+            Instance = this;
         }
-        
+        else
+        {
+            Destroy(this);
+        }
+       
+        //SetElementAtRandomPosition();
+    }
+
+    private void Start()
+    {
+        if (checkPointLevel.Count == 0)
+        {
+            foreach (Transform child in transform)
+            {
+                checkPointLevel.Add(child.gameObject);
+                child.gameObject.GetComponent<CheckPoints>().SetId(checkPointLevel.Count);
+            }
+        }
+        checkPointValueToWin = checkPointLevel.Count;
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
-        //SetElementAtRandomPosition();
     }
 
     private void Update()
