@@ -8,8 +8,8 @@ public class CheckPointManager : MonoBehaviour
 {
     //Singleton Field
     private static CheckPointManager _instanceCheckPointManager;
-    public static CheckPointManager Instance { get { return _instanceCheckPointManager; } }
-    
+    public static CheckPointManager Instance => _instanceCheckPointManager;
+
     /**
      * CheckPoints Part
      */

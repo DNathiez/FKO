@@ -12,10 +12,13 @@ public class GhostReplay : MonoBehaviour
 
     private float lerpSpeed;
     
+    private CameraScript cameraScript;
+    
     private GhostRecording ghostRecording;
     // Start is called before the first frame update
     void Start()
     {
+        cameraScript = CameraScript.Instance;
         lerpSpeed = GhostRecording.Instance.timeBetweenPositionsInSeconds;
     }
 
@@ -37,6 +40,7 @@ public class GhostReplay : MonoBehaviour
     
     public void StartReplay()
     {
+        cameraScript.SetPlayer(ghostGO);
         StartCoroutine(Replay());
     }
 
