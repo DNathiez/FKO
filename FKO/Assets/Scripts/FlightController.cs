@@ -15,6 +15,7 @@ public class FlightController : MonoBehaviour
    [SerializeField] [Range(0, 5)] private float horizontalSensitivity = 1;
 
    [SerializeField] private float verticalAngleLimit = 40;
+   [SerializeField] private float horizontalAngleLimit = 60;
    
    [SerializeField] private Vector2 cursorDelta;
    
@@ -117,6 +118,10 @@ public class FlightController : MonoBehaviour
       {
          transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z), Time.deltaTime * dampingSpeed);
       }
+      if (Input.GetAxis("Horizontal") == 0)
+      {
+         transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), Time.deltaTime * dampingSpeed);
+      }
       if (Input.GetAxis("Horizontal") != 0)
       {
          if (Input.GetAxis("Horizontal") > 0 && cursorDelta.x < 0)
@@ -129,6 +134,17 @@ public class FlightController : MonoBehaviour
          }
          cursorDelta.x += horizontalAxisSensitivity.Evaluate(Input.GetAxis("Horizontal")) * Time.deltaTime;
          cursorDelta.x = Mathf.Clamp(cursorDelta.x, -1, 1);
+         //rotate the object z axis
+         transform.Rotate(0, 0, -cursorDelta.x * horizontalSensitivity);
+         //clamp the z rotation to horizontalAngleLimit
+         if (transform.eulerAngles.z > 180)
+         {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.z, 360 - horizontalAngleLimit, 360));
+         }
+         else
+         {
+            transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.z, 0, horizontalAngleLimit));
+         }
       }
       else
       {
