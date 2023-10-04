@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9206990671835803179}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "C\xE2ble D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 5649237949429143225}
   - component: {fileID: 5124621213032587658}
   - component: {fileID: 9068683743588203085}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -150,7 +150,7 @@ GameObject:
   - component: {fileID: 6513253446859037566}
   - component: {fileID: 6087417749744360469}
   - component: {fileID: 1946559654212382020}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pin G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -255,7 +255,7 @@ GameObject:
   - component: {fileID: 8395448698447240507}
   - component: {fileID: 625545440814507248}
   - component: {fileID: 9223079016795054334}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -360,7 +360,7 @@ GameObject:
   - component: {fileID: 8906068211596119744}
   - component: {fileID: 3519037624695943663}
   - component: {fileID: 987454036990498959}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pin D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 8988989542602319194}
   - component: {fileID: 4685893916639762684}
   - component: {fileID: 3652812410433122161}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -568,7 +568,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5418946000502728890}
   - component: {fileID: 8739398431600542805}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Transistor M
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -634,7 +634,7 @@ GameObject:
   - component: {fileID: 5176557557502315184}
   - component: {fileID: 6600156900599454075}
   - component: {fileID: 1380402928185096825}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -736,7 +736,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8890846759754431842}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "C\xE2ble G"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 5838237776157433755}
   - component: {fileID: 1575186096106232026}
   - component: {fileID: 6647723953490768930}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bobine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
