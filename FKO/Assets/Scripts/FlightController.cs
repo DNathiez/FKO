@@ -37,17 +37,17 @@ public class FlightController : MonoBehaviour
       transform.rotation = Quaternion.Euler(transform.rotation.eulerAngles + new Vector3(-cursorDelta.y, cursorDelta.x, 0));
       
       Accelerate();
-      if(Input.GetKeyDown(KeyCode.LeftShift)) Decelerate();
+      if(Input.GetButtonDown("Fire2")) Decelerate();
    }
 
    private void Accelerate()
    {
-      if (Input.GetKeyDown(KeyCode.Space))
+      if (Input.GetButtonDown("Fire1"))
       {
          isAccelerating = true;
       }
 
-      if (Input.GetKeyUp(KeyCode.Space))
+      if (Input.GetButtonUp("Fire1"))
       {
          isAccelerating = false;
       }
