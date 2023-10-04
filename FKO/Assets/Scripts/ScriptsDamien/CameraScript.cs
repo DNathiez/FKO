@@ -8,6 +8,8 @@ public class CameraScript : MonoBehaviour
     private Quaternion playerRotation;
     [Range(0.001f, 0.1f)] [SerializeField] private float smoothFactor = 0.5f;
     [SerializeField] private Vector3 cameraOffset;
+    
+    private Vector3 goalPosition;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +22,8 @@ public class CameraScript : MonoBehaviour
         playerRotation = player.transform.rotation;
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
-        transform.position = Vector3.Lerp(transform.position, position + cameraRotation * cameraOffset, smoothFactor);
+        goalPosition = position + cameraRotation * cameraOffset;
+        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactor);
         transform.LookAt(position);
     }
 }

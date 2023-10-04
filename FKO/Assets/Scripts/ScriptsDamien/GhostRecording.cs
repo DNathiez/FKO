@@ -55,13 +55,22 @@ public class GhostRecording : MonoBehaviour
 
     private void SaveRecording()
     {
-        string path = ghostSavePath + ghostName + ".txt";
-        string[] lines = new string[positions.Count];
-        for (int i = 0; i < positions.Count; i++)
-        {
-            lines[i] = $"{positions[i].x},{positions[i].y},{positions[i].z},{rotations[i].x},{rotations[i].y},{rotations[i].z},{rotations[i].w}";
-        }
-        System.IO.File.WriteAllLines(path, lines);
-        Debug.Log("Saved recording to " + path);
+        string path = ghostSavePath + ghostName + ".json";
+        Ghost ghost = new Ghost(ghostName, positions, rotations);
+        string json = JsonUtility.ToJson(ghost);
+        System.IO.File.WriteAllText(path, json);
+    }
+}
+
+internal class Ghost
+{
+    public string ghostName;
+    public List<Vector3> positions;
+    public List<Quaternion> rotations;
+    public Ghost(string ghostName, List<Vector3> positions, List<Quaternion> rotations)
+    {
+        this.ghostName = ghostName;
+        this.positions = positions;
+        this.rotations = rotations;
     }
 }

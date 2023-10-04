@@ -16,11 +16,28 @@ public class CheckPoints : MonoBehaviour
     
     //Private
     private SphereCollider _sphereCollider;
+    private Respawn _respawn;
     
     // Start is called before the first frame update
     void Awake()
     {
         CheckCapsuleColliderAttached();
+    }
+    
+    void Start()
+    {
+        _respawn = Respawn.Instance;
+        if (!_respawn)
+        {
+            Debug.Log("Respawn Not Set");
+            return;
+        }
+        if (!_PSWhenCompleted)
+        {
+            Debug.Log("Particule System Not Set");
+            return;
+        }
+        _PSWhenCompleted.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -31,6 +48,7 @@ public class CheckPoints : MonoBehaviour
             IncrementValueToReachVictory();
             EnableParticulesFeedback();
             Debug.Log(gameObject.name + " is passed and complete");
+            _respawn.SetRespawnPoint(transform.position, other.transform.rotation.eulerAngles);
         }
     }
 
