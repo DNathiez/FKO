@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -8,6 +9,9 @@ public class GameManager : MonoBehaviour
     public bool inGame;
     
     public UIManager uiManager;
+    public Timer timer;
+
+    [SerializeField] private Transform originPoint;
     
     private void Awake()
     {
@@ -18,6 +22,27 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire3") && !isPlaying)
+        {
+           Play();
+        }
+    }
+
+    public void Play()
+    {
+        isPlaying = true; 
+        timer.StartChrono();
+    }
     
-    
+    public void Restart(GameObject obj)
+    {
+        obj.transform.position = originPoint.position;
+        timer.ResetChrono();
+        obj.SetActive(true);
+        inGame = true;
+        uiManager.Restart();
+    }
 }

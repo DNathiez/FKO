@@ -16,16 +16,6 @@ public class Death : MonoBehaviour
         }
         particleSystem.SetActive(false);
     }
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     private void Die()
     {
@@ -37,7 +27,16 @@ public class Death : MonoBehaviour
         particleSystem.transform.position = player.transform.position;
         particleSystem.SetActive(true);
         player.SetActive(false);
+        
+        GameManager.instance.timer.StopChrono();
+
+        player.GetComponent<FlightController>().ResetSpeed();
+        
+        GameManager.instance.inGame = false;
+        GameManager.instance.isPlaying = false;
+        GameManager.instance.uiManager.DrawGameResult();
     }
+    
 
     private void OnTriggerEnter(Collider other)
     {
