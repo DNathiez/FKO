@@ -53,8 +53,8 @@ public class Respawn : MonoBehaviour
         particleSystem.transform.position = player.transform.position;
         particleSystem.SetActive(false);
         particleSystem.SetActive(true);
-        player.SetActive(true);
         player.transform.position = respawnPoint;
+        player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
     }
 }
