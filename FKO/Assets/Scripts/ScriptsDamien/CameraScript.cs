@@ -10,10 +10,12 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 cameraOffset;
     
     private Vector3 goalPosition;
-    // Start is called before the first frame update
-    void Start()
+    
+    public static CameraScript Instance { get; private set; }
+    
+    private void Awake()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame
@@ -25,5 +27,10 @@ public class CameraScript : MonoBehaviour
         goalPosition = position + cameraRotation * cameraOffset;
         transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactor);
         transform.LookAt(position);
+    }
+    
+    public void SetPlayer(GameObject newPlayer)
+    {
+        player = newPlayer;
     }
 }
