@@ -6515,7 +6515,7 @@ PrefabInstance:
         type: 3}
       propertyPath: textFile
       value: 
-      objectReference: {fileID: 4900000, guid: 1f7953352cec159478319ade97c857de, type: 3}
+      objectReference: {fileID: 4900000, guid: ba085b7a88f0cb54a9bb2e44f75f1808, type: 3}
     - target: {fileID: 5818411447852973059, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}
       propertyPath: m_Name
@@ -6534,7 +6534,7 @@ PrefabInstance:
     - target: {fileID: 6266195839619557011, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}
       propertyPath: ghostSavePath
-      value: Assets/Scripts/ScriptsDamien/Ghosts
+      value: Assets/Scripts/ScriptsDamien/Ghosts/
       objectReference: {fileID: 0}
     - target: {fileID: 6266195839619557011, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}
