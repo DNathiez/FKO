@@ -976,7 +976,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df52a5a890749c24595b086b1f411cab, type: 2}
+      objectReference: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2418,15 +2418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df52a5a890749c24595b086b1f411cab, type: 2}
+      objectReference: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2092586948498291589, guid: aeb4200bc3b2d864096a536b13234f24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 436364994}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb4200bc3b2d864096a536b13234f24, type: 3}
 --- !u!1 &436364987 stripped
 GameObject:
@@ -2440,26 +2436,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 436364986}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &436364994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436364987}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c82e2009ccc6fb4f8bf249861a0dd5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointValueToWin: 0
-  checkPointLevel: []
-  cubeCenter: {x: 0, y: 0, z: 0}
-  cubeSize: {x: 0, y: 0, z: 0}
-  enableGizmos: 0
-  _checkPointSizeList: 0
-  checkPointPassed: 0
-  lastCheckPointPassed: 0
 --- !u!1 &437320679
 GameObject:
   m_ObjectHideFlags: 0
@@ -4307,7 +4283,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1298784993297713326, guid: c31aeae1384362042b34bc4b9f1b0447, type: 3}
     m_RemovedGameObjects:
     - {fileID: 5094484542621352433, guid: c31aeae1384362042b34bc4b9f1b0447, type: 3}
     m_AddedGameObjects:
@@ -5000,15 +4977,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df52a5a890749c24595b086b1f411cab, type: 2}
+      objectReference: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2092586948498291589, guid: aeb4200bc3b2d864096a536b13234f24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1232391403}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb4200bc3b2d864096a536b13234f24, type: 3}
 --- !u!1 &1232391396 stripped
 GameObject:
@@ -5022,26 +4995,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1232391395}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1232391403
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1232391396}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c82e2009ccc6fb4f8bf249861a0dd5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointValueToWin: 0
-  checkPointLevel: []
-  cubeCenter: {x: 0, y: 0, z: 0}
-  cubeSize: {x: 0, y: 0, z: 0}
-  enableGizmos: 0
-  _checkPointSizeList: 0
-  checkPointPassed: 0
-  lastCheckPointPassed: 0
 --- !u!4 &1233990814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8033438708893270474, guid: 60c96a9825da30a469352bb63e0c2e37,
@@ -5457,10 +5410,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkPointValueToWin: 0
   checkPointLevel: []
-  cubeCenter: {x: 0, y: 0, z: 0}
-  cubeSize: {x: 0, y: 0, z: 0}
-  enableGizmos: 0
   _checkPointSizeList: 0
+  checkpointMaterial: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
+  checkpointColor:
+  - {r: 0.057249308, g: 1, b: 0, a: 1}
+  - {r: 0, g: 0.12823725, b: 1, a: 1}
+  - {r: 1, g: 0, b: 0.67785263, a: 1}
+  - {r: 0, g: 0.9093275, b: 1, a: 1}
+  - {r: 0.57368803, g: 0, b: 1, a: 1}
   checkPointPassed: 0
   lastCheckPointPassed: 0
 --- !u!4 &1347173248
@@ -6876,15 +6833,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df52a5a890749c24595b086b1f411cab, type: 2}
+      objectReference: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2092586948498291589, guid: aeb4200bc3b2d864096a536b13234f24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1752856784}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb4200bc3b2d864096a536b13234f24, type: 3}
 --- !u!1 &1752856777 stripped
 GameObject:
@@ -6898,26 +6851,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1752856776}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1752856784
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752856777}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c82e2009ccc6fb4f8bf249861a0dd5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointValueToWin: 0
-  checkPointLevel: []
-  cubeCenter: {x: 0, y: 0, z: 0}
-  cubeSize: {x: 0, y: 0, z: 0}
-  enableGizmos: 0
-  _checkPointSizeList: 0
-  checkPointPassed: 0
-  lastCheckPointPassed: 0
 --- !u!1001 &1776699665
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7891,15 +7824,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: df52a5a890749c24595b086b1f411cab, type: 2}
+      objectReference: {fileID: 2100000, guid: 87db861cd2f20374ea93316140f926cd, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 2092586948498291589, guid: aeb4200bc3b2d864096a536b13234f24,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2065410595}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: aeb4200bc3b2d864096a536b13234f24, type: 3}
 --- !u!1 &2065410588 stripped
 GameObject:
@@ -7913,26 +7842,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2065410587}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &2065410595
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2065410588}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c82e2009ccc6fb4f8bf249861a0dd5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointValueToWin: 0
-  checkPointLevel: []
-  cubeCenter: {x: 0, y: 0, z: 0}
-  cubeSize: {x: 0, y: 0, z: 0}
-  enableGizmos: 0
-  _checkPointSizeList: 0
-  checkPointPassed: 0
-  lastCheckPointPassed: 0
 --- !u!4 &2071884126 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184014781354656199, guid: 2a61d579c2fecff43a41b2c97539af6b,
@@ -8425,3 +8334,4 @@ SceneRoots:
   - {fileID: 1616746437}
   - {fileID: 33257488}
   - {fileID: 1347173248}
+  - {fileID: 2052980454}

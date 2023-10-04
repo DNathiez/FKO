@@ -16,19 +16,25 @@ public class CheckPointManager : MonoBehaviour
     [Header("Check Points")]
     public int checkPointValueToWin;
     public List<GameObject> checkPointLevel;
+    [SerializeField] private int _checkPointSizeList;
+
+    [Header("Setup Checkpoint Renderer")] 
+    public Material checkpointMaterial;
+    public List<Color> checkpointColor;
     
     //Private S
-    [Header("Area for SpawnPoints")]
-    [SerializeField] private Vector3 cubeCenter; 
-    [SerializeField] private Vector3 cubeSize;
+    //[Header("Area for SpawnPoints")]
+    //[SerializeField] private Vector3 cubeCenter; 
+    //[SerializeField] private Vector3 cubeSize;
+    
+    
     
     /**
      * Debug part
      */
-    [Header("Debug")]
-    [Header("CheckPoints")]
-    [SerializeField] private bool enableGizmos;
-    [SerializeField] private int _checkPointSizeList;
+    //[Header("Debug")]
+    //[Header("CheckPoints")]
+    //[SerializeField] private bool enableGizmos;
 
     public int checkPointPassed;
     public int lastCheckPointPassed;
@@ -60,6 +66,7 @@ public class CheckPointManager : MonoBehaviour
             }
         }
         checkPointValueToWin = checkPointLevel.Count;
+        SetCheckPointsColor(); //Set the color for all the material
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
@@ -72,6 +79,20 @@ public class CheckPointManager : MonoBehaviour
         if (checkPointValueToWin == checkPointPassed)
         {
             Debug.Log("All points passed");
+        }
+    }
+
+    void SetCheckPointsColor()
+    {
+        if (checkPointLevel.Count != 0)
+        {
+            for (int i = 0; i < checkPointLevel.Count; i++)
+            {
+                Material checkpointMaterial = new Material(this.checkpointMaterial);
+                checkpointMaterial.SetColor("_CheckpointsColor", checkpointColor[i]);
+                checkPointLevel[i].GetComponent<Renderer>().material = checkpointMaterial;
+                
+            }
         }
     }
 
@@ -89,34 +110,34 @@ public class CheckPointManager : MonoBehaviour
     }
     
     //Set CheckPoints at Random Position
-    void SetElementAtRandomPosition()
-    {
-        // Loop through the list of elements to spawn
-        foreach (GameObject checkPoint in checkPointLevel)
-        {
-            Vector3 randomPosition = new Vector3(
-                Random.Range(cubeCenter.x - cubeSize.x / 2, cubeCenter.x + cubeSize.x / 2),
-                Random.Range(cubeCenter.y - cubeSize.y / 2, cubeCenter.y + cubeSize.y / 2),
-                Random.Range(cubeCenter.z - cubeSize.z / 2, cubeCenter.z + cubeSize.z / 2)
-            );
-            
-            Quaternion randomRotation = Quaternion.Euler(
-                Random.Range((float)0, 360),
-                Random.Range(0, 360),
-                Random.Range(0, 360)
-            );
-
-            checkPoint.gameObject.GetComponent<Transform>().position = randomPosition;
-            checkPoint.gameObject.GetComponent<Transform>().rotation = randomRotation;
-        }
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (enableGizmos)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireCube(cubeCenter, cubeSize);
-        }
-    }
+    //void SetElementAtRandomPosition()
+    //{
+    //    // Loop through the list of elements to spawn
+    //    foreach (GameObject checkPoint in checkPointLevel)
+    //    {
+    //        Vector3 randomPosition = new Vector3(
+    //            Random.Range(cubeCenter.x - cubeSize.x / 2, cubeCenter.x + cubeSize.x / 2),
+    //            Random.Range(cubeCenter.y - cubeSize.y / 2, cubeCenter.y + cubeSize.y / 2),
+    //            Random.Range(cubeCenter.z - cubeSize.z / 2, cubeCenter.z + cubeSize.z / 2)
+    //        );
+    //        
+    //        Quaternion randomRotation = Quaternion.Euler(
+    //            Random.Range((float)0, 360),
+    //            Random.Range(0, 360),
+    //            Random.Range(0, 360)
+    //        );
+//
+    //        checkPoint.gameObject.GetComponent<Transform>().position = randomPosition;
+    //        checkPoint.gameObject.GetComponent<Transform>().rotation = randomRotation;
+    //    }
+    //}
+//
+    //private void OnDrawGizmos()
+    //{
+    //    if (enableGizmos)
+    //    {
+    //        Gizmos.color = Color.yellow;
+    //        Gizmos.DrawWireCube(cubeCenter, cubeSize);
+    //    }
+    //}
 }
