@@ -9,6 +9,8 @@ public class Respawn : MonoBehaviour
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private Vector3 rotationRespawnPoint;
     public static Respawn Instance;
+    
+    private CameraScript cameraScript;
     private void Awake()
     {
         if (!Instance)
@@ -18,6 +20,11 @@ public class Respawn : MonoBehaviour
         else
         {
             Destroy(this);
+        }
+        
+        if (!cameraScript)
+        {
+            cameraScript = CameraScript.Instance;
         }
     }
     
@@ -32,5 +39,6 @@ public class Respawn : MonoBehaviour
         player.transform.position = respawnPoint;
         player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
+        cameraScript.SetCameraPos(player.transform.position);
     }
 }

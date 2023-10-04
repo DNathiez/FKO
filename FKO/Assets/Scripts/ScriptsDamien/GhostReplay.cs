@@ -35,17 +35,9 @@ public class GhostReplay : MonoBehaviour
         LineRenderer lineRenderer = ghostGO.AddComponent<LineRenderer>();
         lineRenderer.positionCount = positions.Count;
         lineRenderer.SetPositions(positions.ToArray());
-        
-        TrailRenderer trailRenderer = ghostGO.AddComponent<TrailRenderer>();
-        trailRenderer.SetPositions(positions.ToArray());
-        
-        MeshRenderer meshRenderer = ghostGO.AddComponent<MeshRenderer>();
-        MeshFilter meshFilter = ghostGO.AddComponent<MeshFilter>();
-        Mesh mesh = new Mesh();
-        meshFilter.mesh = mesh;
-        mesh.vertices = positions.ToArray();
-        meshRenderer.material = new Material(Shader.Find("Standard"));
-        meshRenderer.material.color = Color.red;
+        Material redMaterial = new Material(Shader.Find("Unlit/Color"));
+        redMaterial.color = Color.red;
+        lineRenderer.material = redMaterial;
     }
     
     public void StartReplay()

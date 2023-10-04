@@ -63,4 +63,9 @@ public class CameraScript : MonoBehaviour
     {
         player = newPlayer;
     }
+
+    public void SetCameraPos(Vector3 position)
+    {
+        transform.position = position;
+    }
 }
