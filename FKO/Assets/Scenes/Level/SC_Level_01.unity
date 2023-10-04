@@ -3495,6 +3495,11 @@ PrefabInstance:
       objectReference: {fileID: 1373382419}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
+      propertyPath: testVAlue
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
       propertyPath: cameraOffset.z
       value: -5
       objectReference: {fileID: 0}
@@ -3505,33 +3510,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
-      propertyPath: smoothFactor.m_Curve.Array.data[0].value
-      value: 0.02
+      propertyPath: AnglesAccentuation
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
-      propertyPath: smoothFactor.m_Curve.Array.data[2].value
+      propertyPath: smoothFactor.m_Curve.Array.data[0].value
       value: 0.008
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
+      propertyPath: smoothFactor.m_Curve.Array.data[2].value
+      value: 0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
       propertyPath: smoothFactor.m_Curve.Array.data[0].inSlope
-      value: -0.023999998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: smoothFactor.m_Curve.Array.data[2].inSlope
-      value: 0
+      value: 0.023999998
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: smoothFactor.m_Curve.Array.data[0].outSlope
-      value: -0.023999998
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: smoothFactor.m_Curve.Array.data[2].outSlope
-      value: 0
+      value: 0.023999998
       objectReference: {fileID: 0}
     - target: {fileID: 8433532994914869487, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}

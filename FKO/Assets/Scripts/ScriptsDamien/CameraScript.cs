@@ -36,8 +36,8 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         speed = flightController.GetSpeed();
-        speed = Mathf.Clamp(speed, 0, 50);
-        speed /= 50;
+        speed = Mathf.Clamp(speed, 10, 50);
+        speed = (speed - 10) / 40;
         
         // // Debug.Log(speed);
         smoothFactorValue = smoothFactor.Evaluate(speed);
