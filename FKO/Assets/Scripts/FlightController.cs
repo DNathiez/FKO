@@ -34,7 +34,14 @@ public class FlightController : MonoBehaviour
          GameManager.instance.isPlaying = true;
          GameManager.instance.uiManager.HideHUD();
       }
-      
+
+      transform.eulerAngles = transform.eulerAngles.x switch
+      {
+         > 86 and < 180 => new Vector3(86, transform.eulerAngles.y, transform.eulerAngles.z),
+         < 274 and > 180 => new Vector3(274, transform.eulerAngles.y, transform.eulerAngles.z),
+         _ => transform.eulerAngles
+      };
+
       if(!GameManager.instance.isPlaying) return;
       
       CalculateCursorDelta();
