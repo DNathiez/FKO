@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
+        Respawn.Instance.SetRespawnPoint(originPoint.position, originPoint.rotation.eulerAngles);
         Initialize();
     }
     
@@ -38,13 +39,14 @@ public class GameManager : MonoBehaviour
         timer.StartChrono();
     }
     
-    public void Restart(GameObject obj)
+    public void Restart()
     {
-        obj.transform.position = originPoint.position;
+        Respawn.Instance.SpawnPlayer();
+        
         uiManager.awaitToStartTxt.gameObject.SetActive(true);
         timer.ResetChrono();
-        obj.SetActive(true);
         inGame = true;
+        
         uiManager.Restart();
     }
 }
