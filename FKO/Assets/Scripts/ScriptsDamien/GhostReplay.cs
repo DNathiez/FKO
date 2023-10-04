@@ -36,6 +36,21 @@ public class GhostReplay : MonoBehaviour
         
         ghostGO.transform.position = positions[0];
         ghostGO.transform.rotation = rotations[0];
+        
+        LineRenderer lineRenderer = ghostGO.AddComponent<LineRenderer>();
+        lineRenderer.positionCount = positions.Count;
+        lineRenderer.SetPositions(positions.ToArray());
+        
+        TrailRenderer trailRenderer = ghostGO.AddComponent<TrailRenderer>();
+        trailRenderer.SetPositions(positions.ToArray());
+        
+        MeshRenderer meshRenderer = ghostGO.AddComponent<MeshRenderer>();
+        MeshFilter meshFilter = ghostGO.AddComponent<MeshFilter>();
+        Mesh mesh = new Mesh();
+        meshFilter.mesh = mesh;
+        mesh.vertices = positions.ToArray();
+        meshRenderer.material = new Material(Shader.Find("Standard"));
+        meshRenderer.material.color = Color.red;
     }
     
     public void StartReplay()
@@ -48,8 +63,8 @@ public class GhostReplay : MonoBehaviour
     {
         for (int i = 0; i < positions.Count; i++)
         {
-            ghostGO.transform.position = Vector3.Lerp(ghostGO.transform.position, positions[i], lerpSpeed);
-            ghostGO.transform.rotation = Quaternion.Lerp(ghostGO.transform.rotation, rotations[i], lerpSpeed);
+            ghostGO.transform.position = positions[i];
+            ghostGO.transform.rotation = rotations[i];
             yield return new WaitForSeconds(lerpSpeed);
         }
     }

@@ -64,6 +64,9 @@ public class GhostRecording : MonoBehaviour
         string path = ghostSavePath + ghostName + ".json";
         Ghost ghost = new Ghost(ghostName, positions, rotations);
         string json = JsonUtility.ToJson(ghost);
+        // json = json.Replace("},{", "},\n{");
+        // json = json.Replace(":[{", ":[\n{");
+        // json = json.Replace("}]", "}\n]");
         System.IO.File.WriteAllText(path, json);
     }
 }

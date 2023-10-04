@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7641050876310924800}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "C\xE2ble D"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 7463237213636122321}
   - component: {fileID: 236641663496768992}
   - component: {fileID: 2440157372335100807}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Bobine
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,7 +147,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 857190693019300211}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: "C\xE2ble G"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -183,7 +183,7 @@ GameObject:
   - component: {fileID: 3961449921386989403}
   - component: {fileID: 752280395855332835}
   - component: {fileID: 4566400222199380961}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -288,7 +288,7 @@ GameObject:
   - component: {fileID: 8028005596840040044}
   - component: {fileID: 8406373597314030390}
   - component: {fileID: 6038091631245503675}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 2587695872534719076}
   - component: {fileID: 5438373199612854377}
   - component: {fileID: 1716069597407527584}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pin G
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -496,7 +496,7 @@ GameObject:
   m_Component:
   - component: {fileID: 425132102124318581}
   - component: {fileID: -3270957664690775366}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Transistor S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -562,7 +562,7 @@ GameObject:
   - component: {fileID: 2134809871176267079}
   - component: {fileID: 7530395453252935463}
   - component: {fileID: 5050426576609485566}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -667,7 +667,7 @@ GameObject:
   - component: {fileID: 3211518517263227600}
   - component: {fileID: 2712794084615740449}
   - component: {fileID: 8260741328382139942}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pin D
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 6037426006725548242}
   - component: {fileID: 444104284494041125}
   - component: {fileID: 8240361757701812618}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: C2
   m_TagString: Untagged
   m_Icon: {fileID: 0}

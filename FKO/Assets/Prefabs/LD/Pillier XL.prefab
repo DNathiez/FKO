@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6248522779282623337}
   - component: {fileID: 1603562049370117471}
   - component: {fileID: 7954716632213637669}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillier XL
   m_TagString: Untagged
   m_Icon: {fileID: 0}

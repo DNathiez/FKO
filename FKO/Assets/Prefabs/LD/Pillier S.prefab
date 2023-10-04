@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 956452673146240747}
   - component: {fileID: 669770435994213026}
   - component: {fileID: 1721979411094102881}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Pillier S
   m_TagString: Untagged
   m_Icon: {fileID: 0}
