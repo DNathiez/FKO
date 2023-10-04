@@ -11,6 +11,8 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float cameraLookAtOffset;
 
+    [SerializeField] private float AnglesAccentuation;
+    
     private float speed;
     
     private Vector3 goalPosition;
@@ -34,8 +36,8 @@ public class CameraScript : MonoBehaviour
     void Update()
     {
         speed = flightController.GetSpeed();
-        speed = Mathf.Clamp(speed, 0, 100);
-        speed /= 100;
+        speed = Mathf.Clamp(speed, 10, 50);
+        speed = (speed - 10) / 40;
         
         // // Debug.Log(speed);
         smoothFactorValue = smoothFactor.Evaluate(speed);
@@ -43,7 +45,7 @@ public class CameraScript : MonoBehaviour
         playerRotation = player.transform.rotation;
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
-        goalPosition = position + cameraRotation * cameraOffset;
+        goalPosition = position + cameraRotation * cameraOffset * AnglesAccentuation;
         transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
         
         if (cameraLookAtOffset > 0)

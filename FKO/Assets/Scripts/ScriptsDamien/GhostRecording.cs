@@ -59,6 +59,10 @@ public class GhostRecording : MonoBehaviour
         // json = json.Replace("},{", "},\n{");
         // json = json.Replace(":[{", ":[\n{");
         // json = json.Replace("}]", "}\n]");
+        if (!System.IO.Directory.Exists(ghostSavePath))
+        {
+            System.IO.Directory.CreateDirectory(ghostSavePath);
+        }
         System.IO.File.WriteAllText(path, json);
     }
 }
