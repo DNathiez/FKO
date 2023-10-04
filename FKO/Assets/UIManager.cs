@@ -5,9 +5,15 @@ public class UIManager : MonoBehaviour
     public Canvas mainMenu;
     public Canvas pauseMenu;
     public Canvas hud;
+
+    public void HideHUD()
+    {
+        hud.gameObject.SetActive(false);
+    }
     
     public void Play()
     {
+        GameManager.instance.inGame = true;
         hud.gameObject.SetActive(true);
         mainMenu.gameObject.SetActive(false);
     }

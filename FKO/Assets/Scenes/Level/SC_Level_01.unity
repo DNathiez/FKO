@@ -1715,7 +1715,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &625355002
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1934,6 +1934,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 734553765}
   m_CullTransparentMesh: 1
+--- !u!1 &739015710 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3737626708654260526, guid: c31aeae1384362042b34bc4b9f1b0447,
+    type: 3}
+  m_PrefabInstance: {fileID: 993712590}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &739015712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 739015710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c2a196bdd43fbb4bba30691873846af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isPlaying: 0
+  inGame: 0
+  uiManager: {fileID: 1175784640}
 --- !u!4 &778615063 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184014781354656199, guid: 2a61d579c2fecff43a41b2c97539af6b,
@@ -2526,6 +2547,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4464934948050820837, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
+      propertyPath: dampingSpeed
+      value: 3.33
+      objectReference: {fileID: 0}
+    - target: {fileID: 4464934948050820837, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
       propertyPath: verticalMinAngle
       value: -40
       objectReference: {fileID: 0}
@@ -2592,7 +2618,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3737626708654260526, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 739015712}
   m_SourcePrefab: {fileID: 100100000, guid: c31aeae1384362042b34bc4b9f1b0447, type: 3}
 --- !u!4 &1147357444 stripped
 Transform:
@@ -2717,9 +2747,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf397d84dfc010418ae948c5c724037, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mainMenu: {fileID: 0}
-  pauseMenu: {fileID: 0}
-  hud: {fileID: 0}
+  mainMenu: {fileID: 625355005}
+  pauseMenu: {fileID: 181832354}
+  hud: {fileID: 1295098261}
 --- !u!4 &1202806778 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184014781354656199, guid: 2a61d579c2fecff43a41b2c97539af6b,
@@ -2923,7 +2953,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1295098258
 RectTransform:
   m_ObjectHideFlags: 0

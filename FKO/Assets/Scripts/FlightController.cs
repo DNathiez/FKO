@@ -29,6 +29,14 @@ public class FlightController : MonoBehaviour
 
    private void Update()
    {
+      if (Input.GetButtonDown("Fire1") && GameManager.instance.inGame && !GameManager.instance.isPlaying)
+      {
+         GameManager.instance.isPlaying = true;
+         GameManager.instance.uiManager.HideHUD();
+      }
+      
+      if(!GameManager.instance.isPlaying) return;
+      
       CalculateCursorDelta();
       Move();
    }
