@@ -372,6 +372,7 @@ GameObject:
   - component: {fileID: 1713975333705422162}
   - component: {fileID: 4672634899953456033}
   - component: {fileID: 8719326985739623674}
+  - component: {fileID: 7360035384961029843}
   m_Layer: 31
   m_Name: Player
   m_TagString: Player
@@ -581,3 +582,34 @@ MonoBehaviour:
   particleSystem: {fileID: 8379737802666486091, guid: ffcd7516273b26f48b4a5abd79c4b549,
     type: 3}
   player: {fileID: 7064155085341808734}
+--- !u!114 &7360035384961029843
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7064155085341808734}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884f93a78e1c2784dba379e33332df4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matSpeed: {fileID: 2100000, guid: 0d19c6ae79cb6124da660678be5713f1, type: 2}
+  enabledRenderer: 0
+  debugValue: 0
+  blurPower: 0.5
+  blurPowerEffect: 0.5
+  minValue: 0.35
+  maxValue: 0.75
+  oscillationSpeed: 1
+  maskSizeLines: 0.1
+  centerMaskEdge: 0.65
+  minCenterMaskEdge: 1
+  maxCenterMaskEdge: 0.4
+  speedLineCenter: {x: 0.5, y: 0.5}
+  lineCount: 20
+  minLineCount: 20
+  maxLineCount: 60
+  frameCount: 24
+  currentMaskSizeLines: 0
+  currentSpeedPlayer: 0

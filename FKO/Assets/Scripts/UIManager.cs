@@ -9,8 +9,12 @@ public class UIManager : MonoBehaviour
     public Canvas pauseMenu;
     public Canvas hud;
     public Canvas deathMenu;
+    
     public Button deathFirstSelectedButton;
+    public TMP_Text awaitToStartTxt;
+    
     public TMP_Text deathTimeText;
+    
     public EventSystem EventSystem;
 
     public void HideHUD()
@@ -21,6 +25,7 @@ public class UIManager : MonoBehaviour
     public void Play()
     {
         hud.gameObject.SetActive(true);
+        awaitToStartTxt.gameObject.SetActive(true);
         mainMenu.gameObject.SetActive(false);
     }
 

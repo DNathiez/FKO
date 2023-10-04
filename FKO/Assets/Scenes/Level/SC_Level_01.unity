@@ -2917,7 +2917,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7064155085341808734, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1363822746}
   m_SourcePrefab: {fileID: 100100000, guid: c31aeae1384362042b34bc4b9f1b0447, type: 3}
 --- !u!1 &1004013504
 GameObject:
@@ -3352,6 +3356,7 @@ MonoBehaviour:
   hud: {fileID: 1295098261}
   deathMenu: {fileID: 1214364672}
   deathFirstSelectedButton: {fileID: 398207265}
+  awaitToStartTxt: {fileID: 362570886}
   deathTimeText: {fileID: 1945106796}
   EventSystem: {fileID: 1637773208}
 --- !u!4 &1202806778 stripped
@@ -3879,6 +3884,37 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 993712590}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1363822746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363822727}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 884f93a78e1c2784dba379e33332df4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  matSpeed: {fileID: 2100000, guid: 0d19c6ae79cb6124da660678be5713f1, type: 2}
+  enabledRenderer: 0
+  debugValue: 0
+  blurPower: 0.5
+  blurPowerEffect: 0.5
+  minValue: 0.35
+  maxValue: 0.75
+  oscillationSpeed: 1
+  maskSizeLines: 0.1
+  centerMaskEdge: 0.65
+  minCenterMaskEdge: 1
+  maxCenterMaskEdge: 0.4
+  speedLineCenter: {x: 0.5, y: 0.5}
+  lineCount: 20
+  minLineCount: 20
+  maxLineCount: 60
+  frameCount: 24
+  currentMaskSizeLines: 0
+  currentSpeedPlayer: 0
 --- !u!1 &1373382418
 GameObject:
   m_ObjectHideFlags: 0

@@ -33,13 +33,15 @@ public class GameManager : MonoBehaviour
 
     public void Play()
     {
-        isPlaying = true; 
+        isPlaying = true;
+        uiManager.awaitToStartTxt.gameObject.SetActive(false);
         timer.StartChrono();
     }
     
     public void Restart(GameObject obj)
     {
         obj.transform.position = originPoint.position;
+        uiManager.awaitToStartTxt.gameObject.SetActive(true);
         timer.ResetChrono();
         obj.SetActive(true);
         inGame = true;
