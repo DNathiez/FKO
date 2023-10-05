@@ -40,11 +40,11 @@ Material:
     m_Floats:
     - _BlurPower: 0.5
     - _BlurPowerEffect: 0.5
-    - _CenterMaskEdge: 0.4
+    - _CenterMaskEdge: 1
     - _DebugVignette: 0
     - _FramesAnim: 24
     - _InvertVignette: 0
-    - _LineCount: 60
+    - _LineCount: 20
     - _MaskSize_Lines: 0.1
     - _SpeedLine: 1
     - _UseVignette: 0

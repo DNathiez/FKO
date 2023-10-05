@@ -30,7 +30,7 @@ public class Death : MonoBehaviour
         GameManager.instance.isPlaying = false;
         GameManager.instance.inGame = false;
         GameManager.instance.timer.StopChrono();
-        GhostRecording.Instance.StopRecording();
+      //  GhostRecording.Instance.StopRecording();
 
         await Task.Delay((int)(particleSystem.GetComponent<ParticleSystem>().main.duration * 1000));
         particleSystem.SetActive(false);

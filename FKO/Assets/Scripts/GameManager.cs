@@ -17,10 +17,14 @@ public class GameManager : MonoBehaviour
     
     private void Awake()
     {
-        Respawn.Instance.SetRespawnPoint(originPoint.position, originPoint.rotation.eulerAngles);
         Initialize();
     }
-    
+
+    private void Start()
+    {
+        Respawn.Instance.SetRespawnPoint(originPoint.position, originPoint.rotation.eulerAngles);
+    }
+
     private void Initialize()
     {
         instance = this;
@@ -52,7 +56,7 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = true;
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
-        GhostRecording.Instance.StartRecording();
+       // GhostRecording.Instance.StartRecording();
         timer.StartChrono();
     }
 

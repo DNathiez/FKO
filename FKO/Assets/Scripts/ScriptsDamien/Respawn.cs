@@ -13,7 +13,6 @@ public class Respawn : MonoBehaviour
     [SerializeField] private float incrementValue = 1;
     public static Respawn Instance;
     
-    private CameraScript cameraScript;
     private void Awake()
     {
         if (!Instance)
@@ -24,11 +23,7 @@ public class Respawn : MonoBehaviour
         {
             Destroy(this);
         }
-        
-        if (!cameraScript)
-        {
-            cameraScript = CameraScript.Instance;
-        }
+       
     }
     
     public void SetRespawnPoint(Vector3 newRespawnPoint, Vector3 newRotationRespawnPoint)
@@ -42,7 +37,7 @@ public class Respawn : MonoBehaviour
         player.transform.position = respawnPoint;
         player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
-        cameraScript.SetCameraPos(player.transform.position);
+        CameraScript.Instance.SetCameraPos(player.transform.position);
         player.GetComponent<FlightController>().ResetSpeed();
 
         value = -1.5f;
