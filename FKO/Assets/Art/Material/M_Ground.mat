@@ -178,7 +178,7 @@ Material:
     - _ColorCheckpoints_1: {r: 0, g: 0.12823725, b: 1, a: 1}
     - _ColorCheckpoints_2: {r: 1, g: 0, b: 0.67785263, a: 1}
     - _ColorCheckpoints_3: {r: 0, g: 0.9093275, b: 1, a: 1}
-    - _ColorCheckpoints_4: {r: 0.821043, g: 0, b: 1, a: 1}
+    - _ColorCheckpoints_4: {r: 0, g: 1, b: 0.060328007, a: 1}
     - _ColorCheckpoints_5: {r: 0, g: 0.88068175, b: 1, a: 0}
     - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
