@@ -4,6 +4,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+
+    public Action OnUpdate;
     
     public bool isPlaying;
     public bool inGame;
@@ -30,6 +32,8 @@ public class GameManager : MonoBehaviour
         {
            Play();
         }
+        
+        OnUpdate?.Invoke();
     }
 
     public void Play()
@@ -48,6 +52,6 @@ public class GameManager : MonoBehaviour
         timer.ResetChrono();
         inGame = true;
         
-        uiManager.Restart();
+        uiManager.Resume();
     }
 }

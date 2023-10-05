@@ -15,8 +15,6 @@ public class UIManager : MonoBehaviour
     
     public TMP_Text deathTimeText;
     
-    public EventSystem EventSystem;
-
     public void HideHUD()
     {
         hud.gameObject.SetActive(false);
@@ -28,7 +26,6 @@ public class UIManager : MonoBehaviour
         awaitToStartTxt.gameObject.SetActive(true);
         mainMenu.gameObject.SetActive(false);
     }
-
     public void Exit()
     {
         Application.Quit();
@@ -39,30 +36,26 @@ public class UIManager : MonoBehaviour
         hud.gameObject.SetActive(false);
         pauseMenu.gameObject.SetActive(true);
     }
-    
     public void Resume()
     {
         hud.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
         deathMenu.gameObject.SetActive(false);
     }
-    
-    public void Restart()
-    {
-        //Game restart fuction
-        Resume();
-        
-    }
 
-    public void DrawGameResult()
+    public void GameOverUI()
     {
         hud.gameObject.SetActive(false);
         deathMenu.gameObject.SetActive(true);
 
         deathTimeText.text = GameManager.instance.timer.GetTime();
         
-        EventSystem.SetSelectedGameObject(deathFirstSelectedButton.gameObject);
+        EventSystem.current.SetSelectedGameObject(deathFirstSelectedButton.gameObject);
     }
-
+    
+    public void ResultGameUI()
+    {
+        
+    }
    
 }
