@@ -27,18 +27,16 @@ public class Death : MonoBehaviour
         player.SetActive(false);
         
         GameManager.instance.uiManager.HideHUD();
-
-        
+        GameManager.instance.isPlaying = false;
+        GameManager.instance.inGame = false;
         GameManager.instance.timer.StopChrono();
-        
+        GhostRecording.Instance.StopRecording();
+
         await Task.Delay((int)(particleSystem.GetComponent<ParticleSystem>().main.duration * 1000));
-        
+        particleSystem.SetActive(false);
+
         player.GetComponent<FlightController>().ResetSpeed();
         
-        GhostRecording.Instance.StopRecording();
-        
-        GameManager.instance.inGame = false;
-        GameManager.instance.isPlaying = false;
         GameManager.instance.RespawnPlayer();
     }
     
