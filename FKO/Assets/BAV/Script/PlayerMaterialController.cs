@@ -31,20 +31,16 @@ public class PlayerMaterialController : MonoBehaviour
         currentValue = 0f;
     }
 
-    public void ChangeSpawnValue(bool reverseAnimation)
+    public void ChangeSpawnValue()
     {
 
-        Debug.Log(timeFactor);
-        targetValue = reverseAnimation ? -1.5f : 0.0f;
-        currentValue = Mathf.MoveTowards(currentValue, targetValue,
-            animationCurve.Evaluate(currentValue / 1.5f) * timeFactor);
-        playerMat.SetFloat("_Position", currentValue);
+        GameManager.instance.OnUpdate -= ChangeSpawnValue;
     }
 
     public void Update()
     {
         timeFactor = Time.deltaTime * transitionSpeed;
-        ChangeSpawnValue(true);
+        ChangeSpawnValue();
         Debug.Log(currentValue);
     }
 }

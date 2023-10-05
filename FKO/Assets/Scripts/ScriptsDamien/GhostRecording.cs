@@ -31,7 +31,7 @@ public class GhostRecording : MonoBehaviour
     public void StartRecording()
     {
         StartCoroutine(Record());
-        respawn.SpawnPlayer();
+       // respawn.SpawnPlayer();
         cameraScript.SetPlayer(player);
     }
 
