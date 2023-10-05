@@ -83,7 +83,8 @@ MonoBehaviour:
   particleSystem: {fileID: 0}
   respawnPoint: {x: 0, y: 0, z: 0}
   rotationRespawnPoint: {x: 0, y: 0, z: 0}
-  playerMat: {fileID: 0}
+  playerMat: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
+  incrementValue: 1
 --- !u!1 &4416548017449344371
 GameObject:
   m_ObjectHideFlags: 0
@@ -262,6 +263,7 @@ MonoBehaviour:
   smoothFactorValue: 0.00151
   cameraOffset: {x: 0, y: 5, z: -5}
   cameraLookAtOffset: 5
+  followSmoothFactor: 0.008
   AnglesAccentuation: 0.3
 --- !u!1 &7064155085341808734
 GameObject:
@@ -506,8 +508,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   matSpeed: {fileID: 2100000, guid: 0d19c6ae79cb6124da660678be5713f1, type: 2}
-  enabledRenderer: 0
+  playerMat: {fileID: 2100000, guid: 342b0ee2d5da17e4db6f4631ef1616c5, type: 2}
+  playerMinColor: {r: 0.34607512, g: 0.61408764, b: 0.7264151, a: 1}
+  playerMaxColor: {r: 0.8962264, g: 0.21560161, b: 0.21560161, a: 1}
   debugValue: 0
+  minSpeedPlayer: 20
+  maxSpeedPlayer: 50
   blurPower: 0.5
   blurPowerEffect: 0.5
   minValue: 0.35
@@ -523,7 +529,6 @@ MonoBehaviour:
   maxLineCount: 60
   frameCount: 24
   currentMaskSizeLines: 0
-  currentSpeedPlayer: 0
 --- !u!65 &6467618977282086057
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -868,7 +873,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
+      objectReference: {fileID: 2100000, guid: 342b0ee2d5da17e4db6f4631ef1616c5, type: 2}
     - target: {fileID: -3897300324572645283, guid: b767e35744aa36d4086662c04779b321,
         type: 3}
       propertyPath: m_Layer

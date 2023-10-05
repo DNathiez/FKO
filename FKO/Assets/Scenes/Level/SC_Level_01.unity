@@ -2094,7 +2094,7 @@ PrefabInstance:
     - target: {fileID: 2901837479094993578, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: incrementValue
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3737626708654260526, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
@@ -2116,6 +2116,16 @@ PrefabInstance:
       propertyPath: chrono
       value: 
       objectReference: {fileID: 1373382419}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: followSmoothFactor
+      value: 0.008
+      objectReference: {fileID: 0}
+    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: smoothFactorValueFactor
+      value: 0.05
+      objectReference: {fileID: 0}
     - target: {fileID: 7206320703864160768, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

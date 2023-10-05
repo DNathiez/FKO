@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class CameraScript : MonoBehaviour
 {
@@ -10,6 +11,7 @@ public class CameraScript : MonoBehaviour
     [Range(0.001f,0.03f)][SerializeField] private float smoothFactorValue;
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float cameraLookAtOffset;
+    [SerializeField] [Range(0.002f,0.5f)] private float followSmoothFactor;
 
     [SerializeField] private float AnglesAccentuation;
     
@@ -46,7 +48,7 @@ public class CameraScript : MonoBehaviour
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
         goalPosition = position + cameraRotation * cameraOffset * AnglesAccentuation;
-        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
+        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime / followSmoothFactor);
         
         if (cameraLookAtOffset > 0)
         {

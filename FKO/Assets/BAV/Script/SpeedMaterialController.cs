@@ -123,7 +123,7 @@ public class SpeedMaterialController : MonoBehaviour
         else
         {
             //Color Lerp Base on Speed
-            float tColor = (currentSpeedPlayer - 66.0f) / (3300.0f - 66.0f);
+            float tColor = (currentSpeedPlayer - 20.0f) / (50.0f - 20.0f);
             currentColor = Color.Lerp(playerMinColor, playerMaxColor, tColor);
             
             //Float Lerp Base on Speed
