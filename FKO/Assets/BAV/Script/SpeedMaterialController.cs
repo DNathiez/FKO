@@ -5,9 +5,16 @@ using UnityEngine;
 
 public class SpeedMaterialController : MonoBehaviour
 {
+    [Header("MatSpeed Post Process")]
     public Material matSpeed;
-    public bool enabledRenderer;
+
+    public Material playerMat;
+    public Color playerMinColor;
+    public Color playerMaxColor;
     public bool debugValue;
+
+    public float minSpeedPlayer;
+    public float maxSpeedPlayer;
     
     [Header("BlurControls")] 
     public float blurPower = 0.5f;
@@ -30,16 +37,19 @@ public class SpeedMaterialController : MonoBehaviour
     public float maxLineCount = 60f;
     public float frameCount = 24f; 
     
+    
+    
     //Private float value
     private float currentLineCount      = 0f;
     private float currentBlurPower      = 0f;
-    public float currentMaskSizeLines  = 0f;
+    public float currentMaskSizeLines   = 0f;
     private float currentCenterMaskEdge = 0f;
 
     private float currentTime           = 0f;
-    private float timeSinValue          = 0f;
-    public float currentSpeedPlayer    = 0f;
-
+    private float currentSpeedPlayer           = 0f;
+    private float timeSinValue           = 0f;
+    private Vector4 currentColor        = new Vector4(0f,0f,0f,0f);
+    
     public void Start()
     {
         currentBlurPower = blurPowerEffect;
@@ -59,6 +69,7 @@ public class SpeedMaterialController : MonoBehaviour
             matSpeed.SetVector("_SpeedLineCenter", speedLineCenter);
             matSpeed.SetFloat("_LineCount", lineCount);
             matSpeed.SetFloat("_FramesAnim", frameCount);
+            playerMat.SetColor("_MainColor", playerMinColor);
         }
         else
         {
@@ -69,6 +80,7 @@ public class SpeedMaterialController : MonoBehaviour
             matSpeed.SetVector("_SpeedLineCenter", speedLineCenter);
             matSpeed.SetFloat("_LineCount", currentLineCount);
             matSpeed.SetFloat("_FramesAnim", frameCount);
+            playerMat.SetColor("_MainColor", currentColor);
         }
     }
     
@@ -96,18 +108,25 @@ public class SpeedMaterialController : MonoBehaviour
     public void ChangeValuesAccordingToSpeed()
     {
         currentSpeedPlayer = FlightController.Instance.GetSpeed();
-        if (currentSpeedPlayer <= 20f)
+        if (currentSpeedPlayer <= minSpeedPlayer)
         {
             currentCenterMaskEdge = minCenterMaskEdge;
             currentLineCount = minLineCount;
+            currentColor = playerMinColor;
         }
-        else if(currentSpeedPlayer >= 100f)
+        else if(currentSpeedPlayer >= maxSpeedPlayer)
         {
             currentCenterMaskEdge = maxCenterMaskEdge;
             currentLineCount = maxLineCount;
+            currentColor = playerMaxColor;
         }
         else
         {
+            //Color Lerp Base on Speed
+            float tColor = (currentSpeedPlayer - 66.0f) / (3300.0f - 66.0f);
+            currentColor = Color.Lerp(playerMinColor, playerMaxColor, tColor);
+            
+            //Float Lerp Base on Speed
             currentCenterMaskEdge = minCenterMaskEdge -  (minCenterMaskEdge - maxCenterMaskEdge) * ((currentSpeedPlayer - 20.0f) / 80.0f);
             currentLineCount = minLineCount -  (minLineCount - maxLineCount) * ((currentSpeedPlayer - 20.0f) / 80.0f);
         }
