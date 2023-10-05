@@ -69,7 +69,7 @@ public class FlightController : MonoBehaviour
    {
       transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward * speed, Time.deltaTime);
 
-      transform.eulerAngles += new Vector3(-cursorDelta.y, cursorDelta.x, 0);
+      transform.eulerAngles += new Vector3(cursorDelta.y, cursorDelta.x, 0);
       
       //TODO : Constrains the vertical angle
       transform.eulerAngles = transform.eulerAngles.x switch
