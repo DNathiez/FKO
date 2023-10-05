@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class Death : MonoBehaviour
@@ -14,7 +15,7 @@ public class Death : MonoBehaviour
         particleSystem.SetActive(false);
     }
 
-    private void Die()
+    private async void Die()
     {
         if (!particleSystem)
         {
@@ -25,8 +26,13 @@ public class Death : MonoBehaviour
         particleSystem.SetActive(true);
         player.SetActive(false);
         
-        GameManager.instance.timer.StopChrono();
+        GameManager.instance.uiManager.HideHUD();
 
+        
+        GameManager.instance.timer.StopChrono();
+        
+        await Task.Delay((int)(particleSystem.GetComponent<ParticleSystem>().main.duration * 1000));
+        
         player.GetComponent<FlightController>().ResetSpeed();
         
         GhostRecording.Instance.StopRecording();
