@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-7273741936700151892
+--- !u!114 &-4090715288061642320
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20,8 +20,8 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: M_Checkpoints
-  m_Shader: {fileID: -6465566751694194690, guid: d07764ade27e8244189c8898eac0290c,
+  m_Name: M_PlayerBall
+  m_Shader: {fileID: -6465566751694194690, guid: 98d61e6daa5a8f0449ce2e57fa425508,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -51,9 +51,10 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _FresnelPower: 1.75
+    - _FreqSpeed: 5
+    - _Opacity: 0.721
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - _CheckpointsColor: {r: 0.39876288, g: 0.9016938, b: 0.9716981, a: 1}
+    - _MainColor: {r: 1, g: 0.05270496, b: 0, a: 0}
   m_BuildTextureStacks: []

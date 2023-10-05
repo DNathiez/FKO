@@ -2194,6 +2194,16 @@ PrefabInstance:
       propertyPath: chrono
       value: 
       objectReference: {fileID: 1373382419}
+    - target: {fileID: 6199868752021933654, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
+    - target: {fileID: 6605653906626941679, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
     - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: testVAlue
@@ -2284,6 +2294,16 @@ PrefabInstance:
       propertyPath: smoothFactor.m_Curve.Array.data[1].tangentMode
       value: 34
       objectReference: {fileID: 0}
+    - target: {fileID: 7206320703864160768, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
+    - target: {fileID: 8422297669125720480, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
     - target: {fileID: 8433532994914869487, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2337,11 +2357,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 5094484542621352433, guid: c31aeae1384362042b34bc4b9f1b0447, type: 3}
-    m_AddedGameObjects:
-    - targetCorrespondingSourceObject: {fileID: 3749666140998592049, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1793493676}
+    m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7064155085341808734, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
@@ -2413,7 +2429,8 @@ Transform:
   m_LocalPosition: {x: -248.29987, y: 84.05995, z: -408.45422}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 751991567}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1055261971
