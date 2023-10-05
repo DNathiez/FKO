@@ -2086,16 +2086,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2901837479094993578, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 740885625cf811441a1a2b36aacdb133, type: 2}
-    - target: {fileID: 2901837479094993578, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: incrementValue
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3737626708654260526, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_Name
@@ -2116,76 +2106,6 @@ PrefabInstance:
       propertyPath: chrono
       value: 
       objectReference: {fileID: 1373382419}
-    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: followSmoothFactor
-      value: 0.008
-      objectReference: {fileID: 0}
-    - target: {fileID: 7153512538638757874, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: smoothFactorValueFactor
-      value: 0.05
-      objectReference: {fileID: 0}
-    - target: {fileID: 7206320703864160768, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 342b0ee2d5da17e4db6f4631ef1616c5, type: 2}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMat
-      value: 
-      objectReference: {fileID: 2100000, guid: 342b0ee2d5da17e4db6f4631ef1616c5, type: 2}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: maxSpeedPlayer
-      value: 50
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: minSpeedPlayer
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMaxColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMaxColor.b
-      value: 0.21560161
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMaxColor.g
-      value: 0.21560161
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMaxColor.r
-      value: 0.8962264
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMinColor.a
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMinColor.b
-      value: 0.7264151
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMinColor.g
-      value: 0.61408764
-      objectReference: {fileID: 0}
-    - target: {fileID: 7360035384961029843, guid: c31aeae1384362042b34bc4b9f1b0447,
-        type: 3}
-      propertyPath: playerMinColor.r
-      value: 0.34607512
-      objectReference: {fileID: 0}
     - target: {fileID: 8433532994914869487, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2828,8 +2748,8 @@ MonoBehaviour:
   - {r: 0, g: 0.12823725, b: 1, a: 1}
   - {r: 1, g: 0, b: 0.67785263, a: 1}
   - {r: 0, g: 0.9093275, b: 1, a: 1}
-  - {r: 0, g: 1, b: 0.060328007, a: 1}
-  checkpointColorDefault: {r: 0, g: 0, b: 0, a: 0}
+  - {r: 1, g: 0.9295865, b: 0, a: 1}
+  checkpointColorDefault: {r: 0.9528302, g: 0.17528482, b: 0.17528482, a: 1}
   m_groundMaterial: {fileID: 2100000, guid: ca5d99151b36f4c4a9cbbc2563ea2369, type: 2}
   checkPointPassed: 0
   lastCheckPointPassed: 0

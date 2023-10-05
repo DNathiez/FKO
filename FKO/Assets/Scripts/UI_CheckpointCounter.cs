@@ -35,15 +35,8 @@ public class UI_CheckpointCounter : MonoBehaviour
         for (int i = 0; i < checkpointSpriteList.Count; i++)
         {
             Image cpImage = checkpointSpriteList[i].GetComponent<Image>();
-            
-            if (i < CheckPointManager.Instance.checkPointPassed)
-            {
-                cpImage.color = passedColor;
-            }
-            else
-            {
-                cpImage.color = baseColor;
-            }
+
+            cpImage.color = i < CheckPointManager.Instance.checkPointPassed ? CheckPointManager.Instance.checkpointColor[i] : baseColor;
         }
     }
 }
