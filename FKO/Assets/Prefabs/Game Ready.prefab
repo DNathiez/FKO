@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8433532994914869487}
   - component: {fileID: 5256169924448769652}
   - component: {fileID: 5871318257343610817}
-  - component: {fileID: 1298784993297713326}
   - component: {fileID: 2901837479094993578}
   m_Layer: 0
   m_Name: Game Ready
@@ -67,31 +66,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   chrono: {fileID: 0}
---- !u!114 &1298784993297713326
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3737626708654260526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1c82e2009ccc6fb4f8bf249861a0dd5c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  checkPointValueToWin: 0
-  checkPointLevel:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  cubeCenter: {x: -7.48, y: 0, z: 0}
-  cubeSize: {x: 35.9, y: 20.11, z: 35.75}
-  enableGizmos: 0
-  _checkPointSizeList: 0
-  checkPointPassed: 0
-  lastCheckPointPassed: 0
 --- !u!114 &2901837479094993578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,6 +269,7 @@ MonoBehaviour:
   smoothFactorValue: 0.001
   cameraOffset: {x: 0, y: 5, z: -5}
   cameraLookAtOffset: 5
+  AnglesAccentuation: 0
 --- !u!1 &5094484542621352433
 GameObject:
   m_ObjectHideFlags: 0
@@ -452,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minSpeed: 10
+  maxSpeed: 50
   speed: 0
   acceleration: 6
   deceleration: 7
@@ -459,6 +435,7 @@ MonoBehaviour:
   dampingSpeed: 3.33
   horizontalSensitivity: 3.33
   verticalAngleLimit: 40
+  horizontalAngleLimit: 60
   cursorDelta: {x: 0, y: 0}
   horizontalAxisSensitivity:
     serializedVersion: 2

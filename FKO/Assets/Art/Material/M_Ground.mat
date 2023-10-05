@@ -162,18 +162,18 @@ Material:
     - _AlbedoColor: {r: 0.21986242, g: 0.18654326, b: 0.3018868, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CheckpointPos: {r: -115, g: 8.8, b: -255, a: 0}
-    - _CheckpointPos_1: {r: -406, g: 28, b: -512, a: 0}
-    - _CheckpointPos_2: {r: -217, g: 8.8, b: -403, a: 0}
-    - _CheckpointPos_3: {r: -115, g: 8.8, b: -255, a: 0}
-    - _CheckpointPos_4: {r: -336, g: 57, b: -218, a: 0}
+    - _CheckpointPos_1: {r: -217.2, g: 8.900002, b: -403.9, a: 0}
+    - _CheckpointPos_2: {r: -115.100006, g: 8.900002, b: -255.3, a: 0}
+    - _CheckpointPos_3: {r: -336.6, g: 57.8, b: -218.9, a: 0}
+    - _CheckpointPos_4: {r: -534.1, g: 96.3, b: -331.9, a: 0}
     - _CheckpointPos_5: {r: -534, g: 96, b: -331, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorCheckPoint: {r: 1, g: 0, b: 0.7920551, a: 0}
     - _ColorCheckPoint_1: {r: 1, g: 0, b: 0.029678345, a: 0}
-    - _ColorCheckpoints_1: {r: 1, g: 0.84357387, b: 0, a: 0}
-    - _ColorCheckpoints_2: {r: 0, g: 0.22047567, b: 1, a: 0}
-    - _ColorCheckpoints_3: {r: 1, g: 0.37393147, b: 0, a: 0}
-    - _ColorCheckpoints_4: {r: 1, g: 0, b: 0.7890277, a: 0}
+    - _ColorCheckpoints_1: {r: 0, g: 0.12823725, b: 1, a: 1}
+    - _ColorCheckpoints_2: {r: 1, g: 0, b: 0.67785263, a: 1}
+    - _ColorCheckpoints_3: {r: 0, g: 0.9093275, b: 1, a: 1}
+    - _ColorCheckpoints_4: {r: 0, g: 1, b: 0.060328007, a: 1}
     - _ColorCheckpoints_5: {r: 0, g: 0.88068175, b: 1, a: 0}
     - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}

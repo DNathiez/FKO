@@ -64,8 +64,8 @@ public class CheckPoints : MonoBehaviour
         {
             _sphereCollider = GetComponent<SphereCollider>();
         }
-        Debug.Log("Capsule Collider is ready for Checkpoints : " + gameObject.name + 
-                  "ID :" + _sphereCollider.GetInstanceID());
+//        Debug.Log("Capsule Collider is ready for Checkpoints : " + gameObject.name + 
+//                  "ID :" + _sphereCollider.GetInstanceID());
     }
 
     void IncrementValueToReachVictory()
