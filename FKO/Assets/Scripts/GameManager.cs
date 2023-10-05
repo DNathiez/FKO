@@ -55,7 +55,6 @@ public class GameManager : MonoBehaviour
         Respawn.Instance.SpawnPlayer();
         
         uiManager.awaitToStartTxt.gameObject.SetActive(true);
-        timer.ResetChrono();
 
         inGame = true;
         uiManager.Play();
@@ -77,6 +76,7 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = false;
         inGame = false;
+        uiManager.HideHUD();
         timer.StopChrono();
 
         uiManager.ResultGameUI();

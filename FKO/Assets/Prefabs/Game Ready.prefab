@@ -153,7 +153,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60
+  field of view: 70
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -528,6 +528,8 @@ MonoBehaviour:
   minLineCount: 20
   maxLineCount: 60
   frameCount: 24
+  minFOV: 60
+  maxFOV: 70
   currentMaskSizeLines: 0
 --- !u!65 &6467618977282086057
 BoxCollider:

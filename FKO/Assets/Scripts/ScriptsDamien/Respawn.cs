@@ -43,7 +43,8 @@ public class Respawn : MonoBehaviour
         player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
         cameraScript.SetCameraPos(player.transform.position);
-        
+        player.GetComponent<FlightController>().ResetSpeed();
+
         value = -1.5f;
         isAppearing = true;
     }

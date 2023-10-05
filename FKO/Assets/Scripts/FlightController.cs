@@ -197,6 +197,7 @@ public class FlightController : MonoBehaviour
 
    public void ResetSpeed()
    {
+      Camera.main.fieldOfView = 60;
       speed = minSpeed;
    }
    

@@ -37,6 +37,10 @@ public class SpeedMaterialController : MonoBehaviour
     public float maxLineCount = 60f;
     public float frameCount = 24f; 
     
+    [Header("FOV")]
+    public float minFOV = 60f;
+    public float maxFOV = 90f;
+    private float currentFOV;
     
     
     //Private float value
@@ -56,6 +60,7 @@ public class SpeedMaterialController : MonoBehaviour
         currentMaskSizeLines = maskSizeLines;
         currentCenterMaskEdge = centerMaskEdge;
         currentLineCount = lineCount;
+        Camera.main.fieldOfView = minFOV;
     }
 
     public void SetValue()
@@ -129,6 +134,10 @@ public class SpeedMaterialController : MonoBehaviour
             //Float Lerp Base on Speed
             currentCenterMaskEdge = minCenterMaskEdge -  (minCenterMaskEdge - maxCenterMaskEdge) * ((currentSpeedPlayer - 20.0f) / 30.0f);
             currentLineCount = minLineCount -  (minLineCount - maxLineCount) * ((currentSpeedPlayer - 20.0f) / 30.0f);
+            
+            //FOV Lerp Base on Speed
+            currentFOV = minFOV -  (minFOV - maxFOV) * ((currentSpeedPlayer - 20.0f) / 30.0f);
+            Camera.main.fieldOfView = currentFOV;
         }
     }
     

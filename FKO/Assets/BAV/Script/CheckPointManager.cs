@@ -79,6 +79,7 @@ public class CheckPointManager : MonoBehaviour
         _checkPointSizeList = checkPointLevel.Count;
         
         OnCheckpointPassed += LookIfEnded;
+        OnCheckpointPassed += UpdateCheckPointColor;
     }
 
     void LookIfEnded()
@@ -115,6 +116,23 @@ public class CheckPointManager : MonoBehaviour
         }
     }
 
+    void UpdateCheckPointColor()
+    {
+        for (int i = 0; i < checkPointLevel.Count; i++)
+        {
+            CheckPoints cp = checkPointLevel[i].GetComponent<CheckPoints>();
+
+            if (cp.isPassed)
+            {
+                cp.GetComponent<Renderer>().material.SetColor("_CheckpointsColor", checkpointColor[i]);
+            }
+            else
+            {
+                cp.GetComponent<Renderer>().material.SetColor("_CheckpointsColor", checkpointColorDefault);
+            }
+        }
+    }
+
     //Reset Checkpoints State
     public void ResetCheckPoints()
     {
@@ -127,7 +145,8 @@ public class CheckPointManager : MonoBehaviour
                 cp.isPassed = false;
             }
         }
-        
+
+        UpdateCheckPointColor();
         checkPointPassed = 0;
         
         OnCheckpointReset?.Invoke();
