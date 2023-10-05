@@ -8,6 +8,8 @@ public class Respawn : MonoBehaviour
     [SerializeField] private GameObject particleSystem;
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private Vector3 rotationRespawnPoint;
+    [SerializeField] private Material playerMat;
+    private int incrementValue;
     public static Respawn Instance;
     
     private CameraScript cameraScript;
@@ -40,5 +42,6 @@ public class Respawn : MonoBehaviour
         player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
         cameraScript.SetCameraPos(player.transform.position);
+        //PlayerMaterialController.Instance.ChangeSpawnValue(-1.5f);
     }
 }
