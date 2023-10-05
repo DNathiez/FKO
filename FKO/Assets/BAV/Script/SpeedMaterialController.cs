@@ -96,12 +96,12 @@ public class SpeedMaterialController : MonoBehaviour
     public void ChangeValuesAccordingToSpeed()
     {
         currentSpeedPlayer = FlightController.Instance.GetSpeed();
-        if (currentSpeedPlayer <= 20f)
+        if (currentSpeedPlayer <= 66f)
         {
             currentCenterMaskEdge = minCenterMaskEdge;
             currentLineCount = minLineCount;
         }
-        else if(currentSpeedPlayer >= 100f)
+        else if(currentSpeedPlayer >= 3300f)
         {
             currentCenterMaskEdge = maxCenterMaskEdge;
             currentLineCount = maxLineCount;
