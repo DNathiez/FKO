@@ -122,11 +122,13 @@ Material:
     - _DstBlend: 0
     - _DstBlendAlpha: 0
     - _EnvironmentReflections: 1
+    - _GBRoundedCheckpoint_0: 0
     - _GBRoundedCheckpoint_1: 10
     - _GBRoundedCheckpoint_2: 10
     - _GBRoundedCheckpoint_3: 10
     - _GBRoundedCheckpoint_4: 10
     - _GBRoundedCheckpoint_5: 10
+    - _GBScaleCheckpoint_0: 1.2
     - _GBScaleCheckpoint_1: 1.2
     - _GBScaleCheckpoint_2: 1.2
     - _GBScaleCheckpoint_3: 1.2
@@ -153,6 +155,7 @@ Material:
     - _WorkflowMode: 1
     - _ZWrite: 1
     - _isCompleted: 0
+    - _isCompleted_0: 0
     - _isCompleted_1: 0
     - _isCompleted_2: 0
     - _isCompleted_3: 0
@@ -162,6 +165,7 @@ Material:
     - _AlbedoColor: {r: 0.21986242, g: 0.18654326, b: 0.3018868, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _CheckpointPos: {r: -115, g: 8.8, b: -255, a: 0}
+    - _CheckpointPos_0: {r: -406.6, g: 28.300003, b: -512.5, a: 0}
     - _CheckpointPos_1: {r: -217.2, g: 8.900002, b: -403.9, a: 0}
     - _CheckpointPos_2: {r: -115.100006, g: 8.900002, b: -255.3, a: 0}
     - _CheckpointPos_3: {r: -336.6, g: 57.8, b: -218.9, a: 0}
@@ -170,15 +174,16 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorCheckPoint: {r: 1, g: 0, b: 0.7920551, a: 0}
     - _ColorCheckPoint_1: {r: 1, g: 0, b: 0.029678345, a: 0}
+    - _ColorCheckpoints_0: {r: 0.057249308, g: 1, b: 0, a: 1}
     - _ColorCheckpoints_1: {r: 0, g: 0.12823725, b: 1, a: 1}
     - _ColorCheckpoints_2: {r: 1, g: 0, b: 0.67785263, a: 1}
     - _ColorCheckpoints_3: {r: 0, g: 0.9093275, b: 1, a: 1}
-    - _ColorCheckpoints_4: {r: 0, g: 1, b: 0.060328007, a: 1}
+    - _ColorCheckpoints_4: {r: 0.821043, g: 0, b: 1, a: 1}
     - _ColorCheckpoints_5: {r: 0, g: 0.88068175, b: 1, a: 0}
     - _Debug_1: {r: 2, g: 5, b: 5, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColor: {r: 0.99824125, g: 8.474189, b: 0, a: 0}
-    - _GlobalColorNotCheckCheckpoint: {r: 1, g: 0.04082808, b: 0, a: 0}
+    - _GlobalColorNotCheckCheckpoint: {r: 1, g: 0, b: 0.041268826, a: 1}
     - _GlobalSizeBoxCheckpoint: {r: 10, g: 10, b: 10, a: 0}
     - _GroundColor: {r: 0, g: 0, b: 0, a: 0}
     - _PlayerPos: {r: 0, g: 0, b: 0, a: 0}
