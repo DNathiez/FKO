@@ -12,8 +12,13 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private float cameraLookAtOffset;
 
     [SerializeField] private float AnglesAccentuation;
+    [SerializeField] private AnimationCurve xMultiplier;
+    [SerializeField] private float xMultiplierValue;
+    private float playerRotationXForEvaluation;
     
     private float speed;
+    private Vector3 lastLookatAtPosition;
+
     
     private Vector3 goalPosition;
     private FlightController flightController;
@@ -30,33 +35,45 @@ public class CameraScript : MonoBehaviour
         {
             flightController = FlightController.Instance;
         }
+        lastLookatAtPosition = player.transform.position;
     }
 
     // Update is called once per frame
     void Update()
     {
         speed = flightController.GetSpeed();
-        speed = Mathf.Clamp(speed, 10, 50);
-        speed = (speed - 10) / 40;
+        speed = Mathf.Clamp(speed, 66, 3300);
+        speed = (speed - 66) / 3300;
         
-        Debug.Log(speed);
         smoothFactorValue = smoothFactor.Evaluate(speed);
         //Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
         playerRotation = player.transform.rotation;
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
         goalPosition = position + cameraRotation * cameraOffset * AnglesAccentuation;
-        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
         
+        cameraLookAtOffset = playerRotation.eulerAngles.x is > 30 and < 330 ? 1 : 1;
+        Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
         if (cameraLookAtOffset > 0)
         {
-            Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
-            transform.LookAt(lookAtPosition);
+            // transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
+            playerRotationXForEvaluation = playerRotation.eulerAngles.x > 180 ? playerRotation.eulerAngles.x - 360 : playerRotation.eulerAngles.x;
+            Debug.Log("playerRotationXForEvaluation = " + playerRotationXForEvaluation);
+            xMultiplierValue = xMultiplier.Evaluate(playerRotationXForEvaluation);
+            smoothFactorValue *= xMultiplierValue;
+            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime);
+            
         }
         else
         {
-            transform.LookAt(position);
+            playerRotationXForEvaluation = playerRotation.eulerAngles.x > 180 ? playerRotation.eulerAngles.x - 360 : playerRotation.eulerAngles.x;
+            Debug.Log("playerRotationXForEvaluation = " + playerRotationXForEvaluation);
+            xMultiplierValue = xMultiplier.Evaluate(playerRotationXForEvaluation);
+            smoothFactorValue *= xMultiplierValue;
+            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
         }
+        transform.LookAt(lookAtPosition);
+
     }
     
     public void SetPlayer(GameObject newPlayer)
