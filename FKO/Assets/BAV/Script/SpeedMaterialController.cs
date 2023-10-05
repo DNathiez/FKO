@@ -127,8 +127,8 @@ public class SpeedMaterialController : MonoBehaviour
             currentColor = Color.Lerp(playerMinColor, playerMaxColor, tColor);
             
             //Float Lerp Base on Speed
-            currentCenterMaskEdge = minCenterMaskEdge -  (minCenterMaskEdge - maxCenterMaskEdge) * ((currentSpeedPlayer - 20.0f) / 80.0f);
-            currentLineCount = minLineCount -  (minLineCount - maxLineCount) * ((currentSpeedPlayer - 20.0f) / 80.0f);
+            currentCenterMaskEdge = minCenterMaskEdge -  (minCenterMaskEdge - maxCenterMaskEdge) * ((currentSpeedPlayer - 20.0f) / 30.0f);
+            currentLineCount = minLineCount -  (minLineCount - maxLineCount) * ((currentSpeedPlayer - 20.0f) / 30.0f);
         }
     }
     
