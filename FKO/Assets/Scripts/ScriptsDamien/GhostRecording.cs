@@ -8,8 +8,8 @@ public class GhostRecording : MonoBehaviour
     private List<Quaternion> rotations = new();
     [SerializeField] private GameObject player;
     public float timeBetweenPositionsInSeconds = 0.1f;
-    [SerializeField] private string ghostName = "DefaultName";
-    [SerializeField] private string ghostSavePath = "Assets/ScriptsDamien/Ghosts/";
+    [SerializeField] public string ghostName = "DefaultName";
+    [SerializeField] public string ghostSavePath = "Assets/ScriptsDamien/Ghosts/";
     Timer _timer;
     Respawn respawn;
     CameraScript cameraScript;

@@ -47,6 +47,11 @@ public class GameManager : MonoBehaviour
         isPlaying = true;
         CameraScript.Instance.SetStartCamera(true);
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
+        if (GhostReplay.Instance.HasGhost())
+        {
+            GhostReplay.Instance.LoadRecording();
+            GhostReplay.Instance.StartReplay();
+        }
         GhostRecording.Instance.StartRecording();
         timer.StartChrono();
     }
@@ -57,7 +62,7 @@ public class GameManager : MonoBehaviour
         
         uiManager.awaitToStartTxt.gameObject.SetActive(true);
         timer.ResetChrono();
-
+        GhostReplay.Instance.LoadRecording();
         inGame = true;
         uiManager.Play();
     }
@@ -69,7 +74,7 @@ public class GameManager : MonoBehaviour
         
         CheckPointManager.Instance.ResetCheckPoints();
         timer.ResetChrono();
-        
+        GhostReplay.Instance.LoadRecording();
         inGame = true;
         uiManager.Play();
     }
