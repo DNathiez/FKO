@@ -24,6 +24,7 @@ public class Timer : MonoBehaviour
     
     public void ResetChrono()
     {
+        time = 0;
         chrono.text = "00:00:00";
     }
     
@@ -44,9 +45,9 @@ public class Timer : MonoBehaviour
         StartCoroutine(Chrono());
     }
 
+    private float time;
     private IEnumerator Chrono()
     {
-        float time = 0;
         while (true)
         {
             time += Time.deltaTime;

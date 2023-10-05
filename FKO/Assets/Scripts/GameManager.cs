@@ -1,4 +1,5 @@
 using System;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -26,12 +27,11 @@ public class GameManager : MonoBehaviour
         instance = this;
     }
 
+    public void SetInGame(bool state) => inGame = state;
     private void Update()
     {
-        if (Input.GetButtonDown("Fire3") && !isPlaying)
-        {
-           Play();
-        }
+        if(!isPlaying && inGame) FlightController._playerController.Base.Start.started += ctx => Play();
+        FlightController._playerController.Base.Pause.started += ctx => uiManager.Pause();
         
         OnUpdate?.Invoke();
     }
@@ -47,11 +47,12 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Respawn.Instance.SpawnPlayer();
+        CheckPointManager.Instance.ResetCheckPoints();
         
         uiManager.awaitToStartTxt.gameObject.SetActive(true);
         timer.ResetChrono();
+
         inGame = true;
-        
-        uiManager.Resume();
+        uiManager.Play();
     }
 }

@@ -1,7 +1,10 @@
+using System;
 using UnityEngine;
 
 public class FlightController : MonoBehaviour
 {
+   public static PlayerController _playerController;
+   
    [SerializeField] private float minSpeed = 5f;
    [SerializeField] private float maxSpeed = 50f;
    [SerializeField] private float speed;
@@ -25,6 +28,17 @@ public class FlightController : MonoBehaviour
 
    public static FlightController Instance { get; private set; }
 
+   private void OnEnable()
+   {
+      _playerController = new PlayerController();
+      _playerController.Enable();
+   }
+
+   private void OnDisable()
+   {
+      _playerController.Disable();
+   }
+
    private void Awake()
    {
       if (Instance != null && Instance != this)
@@ -45,14 +59,6 @@ public class FlightController : MonoBehaviour
 
    private void Update()
    {
-      if (Input.GetButtonDown("Fire1") && GameManager.instance.inGame && !GameManager.instance.isPlaying)
-      {
-         GameManager.instance.isPlaying = true;
-         GameManager.instance.uiManager.HideHUD();
-      }
-
-      
-
       if(!GameManager.instance.isPlaying) return;
       
       CalculateCursorDelta();
@@ -73,22 +79,19 @@ public class FlightController : MonoBehaviour
          _ => transform.eulerAngles
       };
        
+      
+      _playerController.Base.Acceleration.started += ctx => isAccelerating = true;
+      _playerController.Base.Acceleration.canceled += ctx => isAccelerating = false;
+      _playerController.Base.Decceleration.started += ctx => isDeccelerating = true;
+      _playerController.Base.Decceleration.canceled += ctx => isDeccelerating = false;
+      
       Accelerate();
-      if(Input.GetButtonDown("Fire2")) Decelerate();
+      Decelerate();
    }
 
 
    private void Accelerate()
    {
-      if (Input.GetButtonDown("Fire1"))
-      {
-         isAccelerating = true;
-      }
-
-      if (Input.GetButtonUp("Fire1"))
-      {
-         isAccelerating = false;
-      }
 
       if (isAccelerating)
       {
@@ -104,8 +107,10 @@ public class FlightController : MonoBehaviour
       }
    }
 
+   private bool isDeccelerating;
    private void Decelerate()
    {
+      if(!isDeccelerating) return;
       if (speed > minSpeed)
       {
          speed -= (deceleration * hardDecelerationFactor) * Time.deltaTime;

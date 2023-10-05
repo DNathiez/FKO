@@ -72,6 +72,7 @@ public class CheckPoints : MonoBehaviour
     {
         CheckPointManager.Instance.checkPointPassed++;
         CheckPointManager.Instance.lastCheckPointPassed = _ID;
+        CheckPointManager.Instance.OnCheckpointPassed?.Invoke();
         //Debug.Log(gameObject.name + "has incremented Value");
     }
 

@@ -9,6 +9,9 @@ public class CheckPointManager : MonoBehaviour
     //Singleton Field
     public static CheckPointManager Instance;
 
+    public Action OnCheckpointPassed;
+    public Action OnCheckpointReset;
+    
     /**
      * CheckPoints Part
      */
@@ -110,7 +113,7 @@ public class CheckPointManager : MonoBehaviour
     }
 
     //Reset Checkpoints State
-    void ResetCheckPoints()
+    public void ResetCheckPoints()
     {
         if (checkPointLevel != null)
         {
@@ -120,6 +123,8 @@ public class CheckPointManager : MonoBehaviour
                 checkpoint.GetComponent<CheckPoints>().isPassed = false;
             }
         }
+        
+        OnCheckpointReset?.Invoke();
     }
     
     //Set CheckPoints at Random Position
