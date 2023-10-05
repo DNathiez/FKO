@@ -63,7 +63,7 @@ public class FlightController : MonoBehaviour
    {
       transform.position = Vector3.Lerp(transform.position, transform.position + transform.forward * speed, Time.deltaTime);
 
-      transform.eulerAngles += new Vector3(-cursorDelta.y, cursorDelta.x, 0);
+      transform.eulerAngles += new Vector3(-cursorDelta.y * Time.deltaTime/0.002f, cursorDelta.x * Time.deltaTime/0.002f, 0);
       
       //TODO : Constrains the vertical angle
       transform.eulerAngles = transform.eulerAngles.x switch
@@ -135,7 +135,7 @@ public class FlightController : MonoBehaviour
          cursorDelta.x += horizontalAxisSensitivity.Evaluate(Input.GetAxis("Horizontal")) * Time.deltaTime;
          cursorDelta.x = Mathf.Clamp(cursorDelta.x, -1, 1);
          //rotate the object z axis
-         transform.Rotate(0, 0, -cursorDelta.x * horizontalSensitivity);
+         transform.Rotate(0, 0, -cursorDelta.x * horizontalSensitivity * Time.deltaTime/.002f);
          //clamp the z rotation to horizontalAngleLimit
          if (transform.eulerAngles.z > 180)
          {

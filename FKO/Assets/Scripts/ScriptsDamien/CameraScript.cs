@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void LateUpdate()
     {
         speed = flightController.GetSpeed();
         speed = Mathf.Clamp(speed, 66, 3300);
