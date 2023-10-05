@@ -17,7 +17,6 @@ public class FlightController : MonoBehaviour
    [SerializeField] private float dampingSpeed = 3;
    [SerializeField] [Range(0, 5)] private float horizontalSensitivity = 1;
 
-   [SerializeField] private float verticalAngleLimit = 40;
    [SerializeField] private float horizontalAngleLimit = 60;
    
    [SerializeField] private Vector2 cursorDelta;

@@ -38,6 +38,7 @@ public class GameManager : MonoBehaviour
             if (!isPlaying && inGame)
             {
                 Play();
+                GhostPlayer.instance.StartReplay();
             }
         };
         
@@ -56,7 +57,7 @@ public class GameManager : MonoBehaviour
     {
         isPlaying = true;
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
-       // GhostRecording.Instance.StartRecording();
+        GhostRecording.Instance.StartRecording();
         timer.StartChrono();
     }
 
@@ -74,6 +75,7 @@ public class GameManager : MonoBehaviour
     {
         Respawn.Instance.SetRespawnPoint(originPoint.position, originPoint.rotation.eulerAngles);
         Respawn.Instance.SpawnPlayer();
+        GhostPlayer.instance.LoadRecording();
         
         CheckPointManager.Instance.ResetCheckPoints();
         timer.ResetChrono();

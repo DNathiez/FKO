@@ -2288,6 +2288,12 @@ MonoBehaviour:
   blendDistance: 0
   weight: 1
   sharedProfile: {fileID: 11400000, guid: 0a0945b4cd023734b8f72757a17b980d, type: 2}
+--- !u!1 &1083136814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5705682234885271948, guid: f4b2310925bab28429cc7bae734e3747,
+    type: 3}
+  m_PrefabInstance: {fileID: 33257488}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1147357444 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1184014781354656199, guid: 2a61d579c2fecff43a41b2c97539af6b,
@@ -3252,7 +3258,7 @@ PrefabInstance:
         type: 3}
       propertyPath: ghostGO
       value: 
-      objectReference: {fileID: 1363822727}
+      objectReference: {fileID: 1083136814}
     - target: {fileID: 5451523108355195560, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}
       propertyPath: textFile
@@ -3261,7 +3267,7 @@ PrefabInstance:
     - target: {fileID: 5451523108355195560, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5818411447852973059, guid: 022c5788797d62940be20fff0f081c3e,
         type: 3}

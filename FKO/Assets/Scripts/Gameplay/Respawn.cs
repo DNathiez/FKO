@@ -6,7 +6,7 @@ using UnityEngine;
 public class Respawn : MonoBehaviour
 {
     [SerializeField] private GameObject player;
-    [SerializeField] private GameObject particleSystem;
+
     [SerializeField] private Vector3 respawnPoint;
     [SerializeField] private Vector3 rotationRespawnPoint;
     [SerializeField] private Material playerMat;

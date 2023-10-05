@@ -7,33 +7,31 @@ public class Death : MonoBehaviour
     [SerializeField] private GameObject player;
     private void Awake()
     {
-        if (!particleSystem)
-        {
-            Debug.Log("Particule System Not Set");
-            return;
-        }
-        particleSystem.SetActive(false);
+       if(particleSystem) particleSystem.SetActive(false);
     }
 
     private async void Die()
     {
-        if (!particleSystem)
+        if (particleSystem)
         {
-            Debug.Log("Particule System Not Set");
-            return;
+            particleSystem.transform.position = player.transform.position;
+            particleSystem.SetActive(true);
         }
-        particleSystem.transform.position = player.transform.position;
-        particleSystem.SetActive(true);
+        
         player.SetActive(false);
         
         GameManager.instance.uiManager.HideHUD();
         GameManager.instance.isPlaying = false;
         GameManager.instance.inGame = false;
         GameManager.instance.timer.StopChrono();
-      //  GhostRecording.Instance.StopRecording();
+        GhostRecording.Instance.StopRecording();
 
         await Task.Delay((int)(particleSystem.GetComponent<ParticleSystem>().main.duration * 1000));
-        particleSystem.SetActive(false);
+        
+        if (particleSystem)
+        {
+            particleSystem.SetActive(false);
+        }
 
         player.GetComponent<FlightController>().ResetSpeed();
         

@@ -1,31 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
-public class GhostReplay : MonoBehaviour
+public class GhostPlayer : MonoBehaviour
 {
-    [SerializeField] private TextAsset textFile;
     private List<Vector3> positions = new();
     private List<Quaternion> rotations = new();
     
     [SerializeField] private GameObject ghostGO;
 
     private float lerpSpeed;
-    
-    private CameraScript cameraScript;
-    
+
+    public static GhostPlayer instance;
     private GhostRecording ghostRecording;
+
+    private void Awake()
+    {
+        if (!instance)
+        {
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
+        }
+    }
 
     void Start()
     {
-        cameraScript = CameraScript.Instance;
         lerpSpeed = GhostRecording.Instance.timeBetweenPositionsInSeconds;
     }
     
-    
     public void LoadRecording()
     {
-        Ghost ghost = JsonUtility.FromJson<Ghost>(textFile.text);
+        if (!File.Exists(Application.persistentDataPath + "/Ghosts/lastGhost" + ".json"))
+        {
+            recordLoaded = false;
+            return;
+        }
+        
+        Ghost ghost = JsonUtility.FromJson<Ghost>(File.ReadAllText(Application.persistentDataPath +"/Ghosts/lastGhost" + ".json"));
         positions = ghost.positions;
         rotations = ghost.rotations;
         
@@ -35,14 +50,21 @@ public class GhostReplay : MonoBehaviour
         LineRenderer lineRenderer = ghostGO.AddComponent<LineRenderer>();
         lineRenderer.positionCount = positions.Count;
         lineRenderer.SetPositions(positions.ToArray());
-        Material redMaterial = new Material(Shader.Find("Unlit/Color"));
-        redMaterial.color = Color.red;
+        
+        Material redMaterial = new Material(Shader.Find("Unlit/Color"))
+        {
+            color = Color.red
+        };
+        
         lineRenderer.material = redMaterial;
+
+        recordLoaded = true;
     }
+
+    private bool recordLoaded;
     
     public void StartReplay()
     {
-        cameraScript.SetPlayer(ghostGO);
         StartCoroutine(Replay());
     }
 

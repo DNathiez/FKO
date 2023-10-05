@@ -12,7 +12,6 @@ public class PlayerMaterialController : MonoBehaviour
     public AnimationCurve animationCurve = AnimationCurve.Linear(0, 0, 1, 1); 
     public float transitionSpeed = 1.0f; 
     public bool reverseAnimation = false; 
-    private float targetValue = 0.0f; 
     private float currentValue;
     private float timeFactor;
     
@@ -27,7 +26,6 @@ public class PlayerMaterialController : MonoBehaviour
         {
             Destroy(this);
         }
-        targetValue = 0.0f; 
         currentValue = 0f;
     }
 
