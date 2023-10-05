@@ -52,25 +52,16 @@ public class CameraScript : MonoBehaviour
         var position = player.transform.position;
         goalPosition = position + cameraRotation * cameraOffset * AnglesAccentuation;
         
-        cameraLookAtOffset = playerRotation.eulerAngles.x is > 30 and < 330 ? 1 : 1;
+        cameraLookAtOffset = 1;
         Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
         if (cameraLookAtOffset > 0)
         {
             // transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
             playerRotationXForEvaluation = playerRotation.eulerAngles.x > 180 ? playerRotation.eulerAngles.x - 360 : playerRotation.eulerAngles.x;
-            Debug.Log("playerRotationXForEvaluation = " + playerRotationXForEvaluation);
             xMultiplierValue = xMultiplier.Evaluate(playerRotationXForEvaluation);
             smoothFactorValue *= xMultiplierValue;
-            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime);
+            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime / .002f);
             
-        }
-        else
-        {
-            playerRotationXForEvaluation = playerRotation.eulerAngles.x > 180 ? playerRotation.eulerAngles.x - 360 : playerRotation.eulerAngles.x;
-            Debug.Log("playerRotationXForEvaluation = " + playerRotationXForEvaluation);
-            xMultiplierValue = xMultiplier.Evaluate(playerRotationXForEvaluation);
-            smoothFactorValue *= xMultiplierValue;
-            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue);
         }
         transform.LookAt(lookAtPosition);
 

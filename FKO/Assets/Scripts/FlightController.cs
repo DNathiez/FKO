@@ -118,7 +118,7 @@ public class FlightController : MonoBehaviour
       {
          transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z), Time.deltaTime * dampingSpeed);
       }
-      if (Input.GetAxis("Horizontal") == 0)
+      if (Input.GetAxis("Horizontal") == 0 && Input.GetAxis("Vertical") == 0)
       {
          transform.rotation = Quaternion.Lerp(transform.rotation, Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y, 0), Time.deltaTime * dampingSpeed);
       }
@@ -134,9 +134,8 @@ public class FlightController : MonoBehaviour
          }
          cursorDelta.x += horizontalAxisSensitivity.Evaluate(Input.GetAxis("Horizontal")) * Time.deltaTime;
          cursorDelta.x = Mathf.Clamp(cursorDelta.x, -1, 1);
-         //rotate the object z axis
          transform.Rotate(0, 0, -cursorDelta.x * horizontalSensitivity * Time.deltaTime/.002f);
-         //clamp the z rotation to horizontalAngleLimit
+         //clamp the rotation to the horizontal angle limit
          if (transform.eulerAngles.z > 180)
          {
             transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, Mathf.Clamp(transform.eulerAngles.z, 360 - horizontalAngleLimit, 360));
@@ -165,11 +164,11 @@ public class FlightController : MonoBehaviour
       {
          if (Input.GetAxis("Vertical") > 0 && cursorDelta.y < 0)
          {
-            cursorDelta.y = 0;
+            cursorDelta.y = 0.1f;
          }
          else if (Input.GetAxis("Vertical") < 0 && cursorDelta.y > 0)
          {
-            cursorDelta.y = 0;
+            cursorDelta.y = -0.1f;
          }
          cursorDelta.y += verticalAxisSensitivity.Evaluate(Input.GetAxis("Vertical")) * Time.deltaTime;
          cursorDelta.y = Mathf.Clamp(cursorDelta.y, -1, 1);
