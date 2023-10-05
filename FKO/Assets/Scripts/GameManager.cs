@@ -42,7 +42,7 @@ public class GameManager : MonoBehaviour
         OnUpdate?.Invoke();
     }
 
-    private void Play()
+    public void Play()
     {
         isPlaying = true;
         CameraScript.Instance.SetStartCamera(true);

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class GhostReplay : MonoBehaviour
 {
-    [SerializeField] private TextAsset textFile;
     private List<Vector3> positions = new();
     private List<Quaternion> rotations = new();
     
@@ -23,28 +22,24 @@ public class GhostReplay : MonoBehaviour
         Instance = this;
     }
 
+    public string path;
     void Start()
     {
         cameraScript = CameraScript.Instance;
         lerpSpeed = GhostRecording.Instance.timeBetweenPositionsInSeconds;
     }
+
+    public void StartGhostReplayScipt()
+    {
+        path = GhostRecording.Instance.path;
+        
+    }
     
     
     public void LoadRecording()
     {
-        //set the ghost as the last one recorded
-        string path = GhostRecording.Instance.ghostSavePath + GhostRecording.Instance.ghostName + ".json";
-        //if the path exists, load the ghost from the file
-        if (Resources.Load<TextAsset>(path) != null)
-        {
-            textFile = Resources.Load<TextAsset>(path);
-            Debug.Log("Ghost Text File Set");
-        }
-        else
-        {
-            Debug.Log("No ghost found");
-        }
-        Ghost ghost = JsonUtility.FromJson<Ghost>(textFile.text);
+        //read the json file and load the positions and rotations
+        Ghost ghost = JsonUtility.FromJson<Ghost>(GhostRecording.Instance.textFile.text);
         positions = ghost.positions;
         rotations = ghost.rotations;
         
@@ -77,12 +72,13 @@ public class GhostReplay : MonoBehaviour
     
     public void SetGhostTextFile(string path)
     {
-        textFile = Resources.Load<TextAsset>(path);
+        this.path = GhostRecording.Instance.path;
+        GhostRecording.Instance.textFile = Resources.Load<TextAsset>(path);
         Debug.Log("Ghost Text File Set");
     }
     
     public bool HasGhost()
     {
-        return textFile != null;
+        return GhostRecording.Instance.textFile != null;
     }
 }

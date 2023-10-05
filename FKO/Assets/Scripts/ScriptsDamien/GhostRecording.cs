@@ -13,6 +13,9 @@ public class GhostRecording : MonoBehaviour
     Timer _timer;
     Respawn respawn;
     CameraScript cameraScript;
+
+    public string path;
+    public TextAsset textFile;
     public static GhostRecording Instance { get; private set; }
     
     private void Awake()
@@ -25,6 +28,13 @@ public class GhostRecording : MonoBehaviour
         _timer = Timer.Instance;
         respawn = Respawn.Instance;
         cameraScript = CameraScript.Instance;
+        path = Application.dataPath + "/FKO/Ghosts/" + ghostName + ".json";
+        if (!System.IO.Directory.Exists(Application.dataPath + "/FKO/Ghosts/"))
+        {
+            System.IO.Directory.CreateDirectory(Application.dataPath + "/FKO/Ghosts/");
+        }
+        GhostReplay.Instance.SetGhostTextFile(path);
+        GhostReplay.Instance.StartGhostReplayScipt();
     }
     
 
@@ -53,7 +63,6 @@ public class GhostRecording : MonoBehaviour
 
     private void SaveRecording()
     {
-        string path = ghostSavePath + ghostName + ".json";
         Ghost ghost = new Ghost(ghostName, positions, rotations);
         string json = JsonUtility.ToJson(ghost);
         // json = json.Replace("},{", "},\n{");
@@ -65,6 +74,7 @@ public class GhostRecording : MonoBehaviour
         }
         System.IO.File.WriteAllText(path, json);
         GhostReplay.Instance.SetGhostTextFile(path);
+        textFile = Resources.Load<TextAsset>(path);
     }
 }
 
