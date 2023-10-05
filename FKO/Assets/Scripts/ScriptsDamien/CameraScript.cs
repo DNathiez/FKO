@@ -7,7 +7,7 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private GameObject player;
     private Quaternion playerRotation;
     [SerializeField] private AnimationCurve smoothFactor;
-    [Range(0.001f,0.0250f)][SerializeField] private float smoothFactorValue;
+    [Range(0.001f,0.03f)][SerializeField] private float smoothFactorValue;
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float cameraLookAtOffset;
 
@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour
         speed = Mathf.Clamp(speed, 10, 50);
         speed = (speed - 10) / 40;
         
-        // // Debug.Log(speed);
+        Debug.Log(speed);
         smoothFactorValue = smoothFactor.Evaluate(speed);
         //Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
         playerRotation = player.transform.rotation;

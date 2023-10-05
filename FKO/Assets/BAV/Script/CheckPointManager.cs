@@ -21,6 +21,7 @@ public class CheckPointManager : MonoBehaviour
     [Header("Setup Checkpoint Renderer")] 
     public Material checkpointMaterial;
     public List<Color> checkpointColor;
+    public Color checkpointColorDefault;
     public Material m_groundMaterial;
 
     //Private S
@@ -86,22 +87,24 @@ public class CheckPointManager : MonoBehaviour
 
     void SetCheckPointsColor()
     {
-        
         if (checkPointLevel.Count != 0)
         {
             for (int i = 0; i < checkPointLevel.Count; i++)
             {
-                string checkpointPosPropertyName = "_CheckpointPos" + i;
-                string colorPropertyName = "_ColorCheckpoints" + i;
-                string isCompletedPropertyName = "_isCompleted" + i;
-                
-                
                 Material checkpointMaterial = new Material(this.checkpointMaterial);
-                checkpointMaterial.SetColor("_CheckpointsColor", checkpointColor[i]);
+                checkpointMaterial.SetColor("_CheckpointsColor", checkpointColorDefault);
                 checkPointLevel[i].GetComponent<Renderer>().material = checkpointMaterial;
-                m_groundMaterial.SetVector(checkpointPosPropertyName, checkPointLevel[i].transform.position);
-                m_groundMaterial.SetColor(colorPropertyName, checkpointColor[i]);
-                m_groundMaterial.SetFloat(isCompletedPropertyName, 0);
+                
+                
+                //Set Automatic the color
+                //Todo : Index not set go to one don't know
+                string checkpointPosPropertyName = "_CheckpointPos_" + i;
+                string colorPropertyName = "_ColorCheckpoints_" + i;
+                Debug.Log(colorPropertyName);
+                //string isCompletedPropertyName = "_isCompleted_" + i;
+                m_groundMaterial.SetVector(colorPropertyName,checkpointColorDefault);
+                //m_groundMaterial.SetFloat(isCompletedPropertyName, 0);
+                m_groundMaterial.SetVector(checkpointPosPropertyName, checkPointLevel[i].transform.localPosition);
             }
         }
     }
