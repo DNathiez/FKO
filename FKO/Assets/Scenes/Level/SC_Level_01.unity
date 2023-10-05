@@ -2106,6 +2106,11 @@ PrefabInstance:
       propertyPath: chrono
       value: 
       objectReference: {fileID: 1373382419}
+    - target: {fileID: 7206320703864160768, guid: c31aeae1384362042b34bc4b9f1b0447,
+        type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8433532994914869487, guid: c31aeae1384362042b34bc4b9f1b0447,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4345,12 +4350,6 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1458062787}
-    - target: {fileID: 5727497056448556236, guid: 12cb3f873a1fcad41acc5664da7d4a7e,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 1565e4e2c1a0ab746bf2e0f65a8d7123,
-        type: 3}
     - target: {fileID: 6276792528449375495, guid: 12cb3f873a1fcad41acc5664da7d4a7e,
         type: 3}
       propertyPath: m_Name

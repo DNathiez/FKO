@@ -37,7 +37,13 @@ public class GameManager : MonoBehaviour
             }
         };
         
-        FlightController._playerController.Base.Pause.started += ctx => uiManager.Pause();
+         FlightController._playerController.Base.Pause.started += ctx =>
+         {
+             if (!uiManager.mainMenu.gameObject.activeSelf)
+             {
+                 uiManager.Pause();
+             }
+         };
         
         OnUpdate?.Invoke();
     }
