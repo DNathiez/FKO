@@ -11,6 +11,7 @@ public class CheckPointManager : MonoBehaviour
 
     public Action OnCheckpointPassed;
     public Action OnCheckpointReset;
+    public Action OnCheckpointSuccess;
     
     /**
      * CheckPoints Part
@@ -76,18 +77,20 @@ public class CheckPointManager : MonoBehaviour
         //Setup Checkpoint
         ResetCheckPoints();
         _checkPointSizeList = checkPointLevel.Count;
+        
+        OnCheckpointPassed += LookIfEnded;
     }
 
-    private void Update()
+    void LookIfEnded()
     {
-        //Check the Number of Point Passed
         if (_checkPointSizeList != checkPointPassed) return;
+        
         if (checkPointValueToWin == checkPointPassed)
         {
-            Debug.Log("All points passed");
+            GameManager.instance.Win();
         }
     }
-
+    
     void SetCheckPointsColor()
     {
         if (checkPointLevel.Count != 0)
@@ -119,10 +122,13 @@ public class CheckPointManager : MonoBehaviour
         {
             foreach (GameObject checkpoint in checkPointLevel)
             {
-                Debug.Log("Reset All the CheckPoints");
-                checkpoint.GetComponent<CheckPoints>().isPassed = false;
+                //Debug.Log("Reset All the CheckPoints");
+                CheckPoints cp = checkpoint.GetComponent<CheckPoints>();
+                cp.isPassed = false;
             }
         }
+        
+        checkPointPassed = 0;
         
         OnCheckpointReset?.Invoke();
     }

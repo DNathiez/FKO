@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
@@ -8,15 +9,15 @@ public class UIManager : MonoBehaviour
     public UI_CheckpointCounter checkpointCounter;
     
     public Canvas mainMenu;
-    public Canvas pauseMenu;
     public Canvas hud;
-    public Canvas deathMenu;
-    
-    public Button pauseFirstSelectedButton;
-    public Button deathFirstSelectedButton;
     public TMP_Text awaitToStartTxt;
+
+    public Canvas pauseMenu;
+    public Button pauseFirstSelectedButton;
     
-    public TMP_Text deathTimeText;
+    public Canvas winMenu;
+    public Button winMenuFirstSelectedButton;
+    public TMP_Text currentTimerRun;
     
     public void HideHUD()
     {
@@ -29,7 +30,8 @@ public class UIManager : MonoBehaviour
         awaitToStartTxt.gameObject.SetActive(true);
         
         mainMenu.gameObject.SetActive(false);
-        deathMenu.gameObject.SetActive(false);
+        pauseMenu.gameObject.SetActive(false);
+        winMenu.gameObject.SetActive(false);
     }
     public void Exit()
     {
@@ -61,22 +63,23 @@ public class UIManager : MonoBehaviour
         
         hud.gameObject.SetActive(true);
         pauseMenu.gameObject.SetActive(false);
-        deathMenu.gameObject.SetActive(false);
+        winMenu.gameObject.SetActive(false);
     }
 
     public void GameOverUI()
     {
         hud.gameObject.SetActive(false);
-        deathMenu.gameObject.SetActive(true);
-
-        deathTimeText.text = GameManager.instance.timer.GetTime();
+        winMenu.gameObject.SetActive(true);
         
-        EventSystem.current.SetSelectedGameObject(deathFirstSelectedButton.gameObject);
+        EventSystem.current.SetSelectedGameObject(winMenuFirstSelectedButton.gameObject);
     }
     
     public void ResultGameUI()
     {
+        currentTimerRun.text = GameManager.instance.timer.GetTime();
+        winMenu.gameObject.SetActive(true);
         
+        EventSystem.current.SetSelectedGameObject(winMenuFirstSelectedButton.gameObject);
     }
    
 }

@@ -39,7 +39,7 @@ public class CameraScript : MonoBehaviour
         speed = Mathf.Clamp(speed, 10, 50);
         speed = (speed - 10) / 40;
         
-        Debug.Log(speed);
+        //Debug.Log(speed);
         smoothFactorValue = smoothFactor.Evaluate(speed);
         //Debug.Log("speed = " + speed + " smoothFactorValue = " + smoothFactorValue);
         playerRotation = player.transform.rotation;

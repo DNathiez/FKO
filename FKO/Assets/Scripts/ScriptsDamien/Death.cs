@@ -33,7 +33,7 @@ public class Death : MonoBehaviour
         
         GameManager.instance.inGame = false;
         GameManager.instance.isPlaying = false;
-        GameManager.instance.uiManager.GameOverUI();
+        GameManager.instance.RespawnPlayer();
     }
     
 

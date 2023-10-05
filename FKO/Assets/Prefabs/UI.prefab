@@ -1312,7 +1312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.8679245, g: 0.6910644, b: 0.6910644, a: 0.392}
+  m_Color: {r: 0.8679245, g: 0.6910644, b: 0.6910644, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3184,13 +3184,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   checkpointCounter: {fileID: 8185993388383745882}
   mainMenu: {fileID: 2249070460050177312}
-  pauseMenu: {fileID: 3659972247132687349}
   hud: {fileID: 85327468066604441}
-  deathMenu: {fileID: 5205458594856739429}
-  pauseFirstSelectedButton: {fileID: 6750766106229609114}
-  deathFirstSelectedButton: {fileID: 4286789808810385988}
   awaitToStartTxt: {fileID: 2912855709605845330}
-  deathTimeText: {fileID: 8531361714238485250}
+  pauseMenu: {fileID: 3659972247132687349}
+  pauseFirstSelectedButton: {fileID: 6750766106229609114}
+  winMenu: {fileID: 5205458594856739429}
+  winMenuFirstSelectedButton: {fileID: 4286789808810385988}
+  currentTimerRun: {fileID: 8531361714238485250}
 --- !u!1 &6642417919422446879
 GameObject:
   m_ObjectHideFlags: 0

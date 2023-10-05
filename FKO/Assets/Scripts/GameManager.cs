@@ -1,5 +1,4 @@
 using System;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -30,29 +29,56 @@ public class GameManager : MonoBehaviour
     public void SetInGame(bool state) => inGame = state;
     private void Update()
     {
-        if(!isPlaying && inGame) FlightController._playerController.Base.Start.started += ctx => Play();
+        FlightController._playerController.Base.Start.started += context =>
+        {
+            if (!isPlaying && inGame)
+            {
+                Play();
+            }
+        };
+        
         FlightController._playerController.Base.Pause.started += ctx => uiManager.Pause();
         
         OnUpdate?.Invoke();
     }
 
-    public void Play()
+    private void Play()
     {
         isPlaying = true;
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
         GhostRecording.Instance.StartRecording();
         timer.StartChrono();
     }
-    
-    public void Restart()
+
+    public void RespawnPlayer()
     {
         Respawn.Instance.SpawnPlayer();
-        CheckPointManager.Instance.ResetCheckPoints();
         
         uiManager.awaitToStartTxt.gameObject.SetActive(true);
         timer.ResetChrono();
 
         inGame = true;
         uiManager.Play();
+    }
+    
+    public void Restart()
+    {
+        Respawn.Instance.SetRespawnPoint(originPoint.position, originPoint.rotation.eulerAngles);
+        Respawn.Instance.SpawnPlayer();
+        
+        CheckPointManager.Instance.ResetCheckPoints();
+        timer.ResetChrono();
+        
+        inGame = true;
+        uiManager.Play();
+    }
+
+    public void Win()
+    {
+        isPlaying = false;
+        inGame = false;
+        timer.StopChrono();
+
+        uiManager.ResultGameUI();
     }
 }
