@@ -64,6 +64,7 @@ public class GhostRecording : MonoBehaviour
             System.IO.Directory.CreateDirectory(ghostSavePath);
         }
         System.IO.File.WriteAllText(path, json);
+        GhostReplay.Instance.SetGhostTextFile(path);
     }
 }
 

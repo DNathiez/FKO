@@ -12,10 +12,14 @@ public class CameraScript : MonoBehaviour
     [SerializeField] private Vector3 cameraOffset;
     [SerializeField] private float cameraLookAtOffset;
     [SerializeField] [Range(0.002f,0.5f)] private float followSmoothFactor;
+    
+    [SerializeField] private Transform cameraStartPos;
 
     [SerializeField] private float AnglesAccentuation;
     
     private float speed;
+    
+    private bool hasStarted = false;
     
     private Vector3 goalPosition;
     private FlightController flightController;
@@ -32,11 +36,13 @@ public class CameraScript : MonoBehaviour
         {
             flightController = FlightController.Instance;
         }
+        transform.position = cameraStartPos.position - Vector3.forward * 10;
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         speed = flightController.GetSpeed();
         speed = Mathf.Clamp(speed, 10, 50);
         speed = (speed - 10) / 40;
@@ -48,16 +54,23 @@ public class CameraScript : MonoBehaviour
         Quaternion cameraRotation = Quaternion.Euler(0, playerRotation.eulerAngles.y, 0);
         var position = player.transform.position;
         goalPosition = position + cameraRotation * cameraOffset * AnglesAccentuation;
-        transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime / followSmoothFactor);
+        if (hasStarted)
+        {
+            transform.position = Vector3.Lerp(transform.position, goalPosition, smoothFactorValue * Time.deltaTime / followSmoothFactor);
+        }
+        else
+        {
+            transform.position = Vector3.Lerp(transform.position, cameraStartPos.position - Vector3.forward * 10, smoothFactorValue * Time.deltaTime / followSmoothFactor);
+        }
         
         if (cameraLookAtOffset > 0)
         {
             Vector3 lookAtPosition = position + cameraRotation * Vector3.forward * cameraLookAtOffset;
-            transform.LookAt(lookAtPosition);
+            transform.LookAt(hasStarted ? lookAtPosition : cameraStartPos.position);
         }
         else
         {
-            transform.LookAt(position);
+            transform.LookAt(hasStarted ? position : cameraStartPos.position);
         }
     }
     
@@ -69,5 +82,10 @@ public class CameraScript : MonoBehaviour
     public void SetCameraPos(Vector3 position)
     {
         transform.position = position;
+    }
+    
+    public void SetStartCamera(bool value)
+    {
+        hasStarted = value;
     }
 }

@@ -45,6 +45,7 @@ public class GameManager : MonoBehaviour
     private void Play()
     {
         isPlaying = true;
+        CameraScript.Instance.SetStartCamera(true);
         uiManager.awaitToStartTxt.gameObject.SetActive(false);
         GhostRecording.Instance.StartRecording();
         timer.StartChrono();
@@ -78,7 +79,7 @@ public class GameManager : MonoBehaviour
         isPlaying = false;
         inGame = false;
         timer.StopChrono();
-
+        CameraScript.Instance.SetStartCamera(false);
         uiManager.ResultGameUI();
     }
 }

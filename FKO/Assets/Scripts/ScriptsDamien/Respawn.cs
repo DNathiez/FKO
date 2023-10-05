@@ -42,7 +42,9 @@ public class Respawn : MonoBehaviour
         player.transform.position = respawnPoint;
         player.SetActive(true);
         player.transform.rotation = Quaternion.Euler(rotationRespawnPoint);
-        cameraScript.SetCameraPos(player.transform.position);
+        cameraScript.SetCameraPos(player.transform.position - Vector3.forward * 10);
+        GameObject cube = GameObject.CreatePrimitive(PrimitiveType.Cube);
+        cube.transform.position = player.transform.position - Vector3.forward * 10;
         
         value = -1.5f;
         isAppearing = true;

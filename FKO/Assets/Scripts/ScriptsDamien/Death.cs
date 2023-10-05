@@ -5,6 +5,8 @@ public class Death : MonoBehaviour
 {
     [SerializeField] private GameObject particleSystem;
     [SerializeField] private GameObject player;
+    
+    private CameraScript cameraScript;
     private void Awake()
     {
         if (!particleSystem)
@@ -13,6 +15,14 @@ public class Death : MonoBehaviour
             return;
         }
         particleSystem.SetActive(false);
+    }
+    
+    private void Start()
+    {
+        if (!cameraScript)
+        {
+            cameraScript = CameraScript.Instance;
+        }
     }
 
     private async void Die()
@@ -25,6 +35,8 @@ public class Death : MonoBehaviour
         particleSystem.transform.position = player.transform.position;
         particleSystem.SetActive(true);
         player.SetActive(false);
+        
+        cameraScript.SetStartCamera(false);
         
         GameManager.instance.uiManager.HideHUD();
         GameManager.instance.isPlaying = false;

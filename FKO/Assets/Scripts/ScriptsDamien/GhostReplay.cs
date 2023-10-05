@@ -15,6 +15,13 @@ public class GhostReplay : MonoBehaviour
     private CameraScript cameraScript;
     
     private GhostRecording ghostRecording;
+    
+    public static GhostReplay Instance { get; private set; }
+    
+    private void Awake()
+    {
+        Instance = this;
+    }
 
     void Start()
     {
@@ -54,5 +61,10 @@ public class GhostReplay : MonoBehaviour
             ghostGO.transform.rotation = rotations[i];
             yield return new WaitForSeconds(lerpSpeed);
         }
+    }
+    
+    public void SetGhostTextFile(string path)
+    {
+        textFile = Resources.Load<TextAsset>(path);
     }
 }
